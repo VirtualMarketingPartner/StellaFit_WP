@@ -1,0 +1,259 @@
+/* ==========================================
+	Globals
+========================================== */
+
+html{margin:0; padding:0;}
+
+body, html{}
+
+body{
+	font-size:18px;
+	line-height:1.75;
+	color:$black;
+	font-family:$sans;
+	font-weight: 400;
+	font-smooth: always;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	width:100%;
+	background:$white;
+	@include defaultTransition;
+} 
+
+.container{
+	padding:0 15px;
+	max-width:1100px;}
+
+.container-fluid section{
+	position:relative;
+	padding:0;
+	
+	&.primary{background:$primary;}
+	&.secondary{background:$secondary;}
+	&.accent{background:$accent;}
+	&.grey{background:$grey;}
+	&.off-white{background:$off-white;}
+	&.black{background:$black;}
+	
+	&.bg{
+		padding:120px 0 0;
+		.overlay{margin-top:-120px;}
+	}
+	
+	.full_flex, .column_flex, .cards_flex, .combo_flex, .post_flex{
+		padding:50px 15px;
+	}
+}
+::selection,
+-moz::selection{background:$accent; color:$white;}
+
+h1, h2, h3, h4, h5, h6{
+	font-weight:600;
+	font-family:$header;
+	margin-bottom:20px;
+	
+	a{
+		color:inherit;
+		text-transform:inherit;
+	}
+}
+
+.highlight{
+	position:relative;
+	display:inline;
+	width:100%;
+
+	&:after{
+		content:'';
+		display:block;
+		position:absolute;
+		background:$off-white;
+		height:20px;
+		margin-top:-20px;
+		margin-left:-12px;
+		width:110%;
+		z-index:-1;
+		transform: skew(-15deg, 0);
+	}	
+}
+
+
+p{
+	margin-bottom:20px;
+	
+	a{
+		color:$primary;
+		background-image:linear-gradient(90deg, $trans 1%, $primary 1%);
+		background-size: 100% 10%;
+		background-position:bottom left;
+		background-repeat: repeat-x;
+		@include defaultTransition;
+		
+		&:hover{
+			background-size:10000% 10%;
+			color:$primary;
+		}
+		
+		&:active, &:focus{font-weight:bold; color:$primary; }
+	}
+	
+}
+
+a{
+	color:$primary;
+	@include defaultTransition;
+	cursor:pointer;
+	
+	&:hover, &:focus, &:active{
+		text-decoration: none; outline:none;}
+		
+	&.button{
+		text-transform:none;
+		padding:10px 20px;
+		color:$white;
+		background:$primary;
+		border-radius:0 20px;
+		
+		i{
+			@include defaultTransition;
+			margin-left:10px;}
+		
+		&:hover{
+			background:$secondary;
+			color:$white;
+			
+			i{margin-left:20px;}
+		}
+		
+		&.inverted{
+			text-transform:none;
+			color:$primary;
+			padding:0;
+			
+			&:hover{
+				&:after{width:100%;}
+				background:$trans;
+				color:$primary;
+				
+			}
+			
+			
+			&:hover{}
+			
+			&:after{
+				content:'';
+				width:100%;
+				height:3px;
+				background:$primary;
+				position:absolute;
+				bottom:0; left:0;
+				@include defaultTransition;
+			}
+			
+			&:hover{
+				&:after{width:0%;}
+			}
+		}
+	}
+}
+
+
+/* ======= Repeated Page Elements ======= */
+
+section.hero{
+	background-size:cover;
+	background-repeat:no-repeat;
+		
+	.hero-text{padding:100px 0 50px;}
+}
+
+.carousel-item{
+	padding:100px 0;
+	color:$white;
+	background-size:cover; 
+	background-repeat:no-repeat;
+}
+
+
+.vcenter{
+	align-items: end;
+	
+	.image-wrapper{}
+}
+
+
+.image-block{
+	width:100%;
+	height:auto;
+}
+
+
+.image-wrapper{
+	position:relative;
+	min-height:450px;
+	
+	&.shape{
+		border-radius:0 180px 0 60px; 
+		overflow:hidden;}
+	
+	&.off-white{background-color: $off-white;}
+	&.grey{background-color: $grey;}
+	&.primary{ background-color: $primary; }
+	&.accent{ background-color: $accent; }
+	
+}
+
+.icon-lg{font-size:250%;}
+
+.card{
+	background:$white;
+	@include border-radius(5px);
+	
+	.image-wrapper{
+		width:100%; height:auto;
+		min-height:200px;
+		margin:0; padding:0;
+		position:relative;
+		background-size:cover;
+		@include defaultTransition;
+		
+		&.off-white{background-color: $off-white;}
+		&.grey{ background-color: $grey; }
+		&.primary{ background-color: $primary; }
+		&.accent{ background-color: $accent; }
+		
+	}
+	
+	.card-body{
+		.icon.image-wrapper{height:120px; width:120px;}
+		
+		a.button{position:absolute; bottom:10px;}
+	}
+	
+	&.top{
+		border-bottom:none;
+		position:relative;
+		
+		&:after{
+			content:'';
+			position:absolute;
+			top:0; left:0;
+			display:block;
+			width:100%; height:5px;
+			border-radius:5px 5px 0 0;
+			background:$accent;}
+	}
+	
+	&.simple{
+		background:$trans;
+		
+		.card-body{padding:0 0 20px 0;}
+	}
+}
+
+.title{font-weight:bold;}
+.sub-title{
+	font-size:80%; 
+	color:$grey;}
+
+

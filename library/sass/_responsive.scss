@@ -1,0 +1,46 @@
+/* ==========================================
+	Responsive Styles
+========================================== */
+
+// Mobile - Smallest screens 
+@media all and (max-width:580px) {}
+
+// Mobile - Default 
+@media all and (max-width:768px) {
+	.hero{
+		max-height:400px; 
+		min-height:400px;
+		
+		.hero-text,
+		.text-wrapper{padding:0;}
+		
+		&:after{bottom:0;}
+	}
+	
+	.bg{}
+	
+	.vcenter .shadow-left .image-wrapper, .vcenter .shadow-right .image-wrapper{
+		position:relative;
+		width:100%;
+		margin-bottom:40px;}
+	
+	.footer{text-align:center;}
+	
+	#header #header_row1 .searchform div input#search{
+		margin:15px auto; width:90%;
+	}
+	
+}
+
+// Mobile - Tablets
+@media all and (min-width:768px) {}
+
+
+// Mobile - Desktop
+@media all and (min-width:992px) {}
+
+// Mobile - Large Screens
+@media all and (min-width:1200px) {}
+
+// Mobile -  Reall Big Screens 
+@media all and (min-width:1500px) {}

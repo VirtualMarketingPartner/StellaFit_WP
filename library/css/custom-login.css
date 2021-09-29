@@ -1,0 +1,60 @@
+body{
+	background-image:url('../../assets/images/gmt_login_bg_01.jpg');
+	background-color:#f5f5f5;
+	font-family:'Open Sans', Arial, sans-serif !important; }
+
+#login h1 a, .login h1 a{
+	background-image:url('../../assets/images/GMT_Logo.png'); 
+	background-size:contain;
+	width: 250px; height:50px;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a {
+  	font-family: 'Avenir', Arial, sans-serif !important;
+	font-style: normal;
+}
+h1 {
+  	font-size: 32px;
+  	margin-bottom: 20px;
+	font-weight:900;
+}
+
+h1.light{
+	font-size:28px; 
+	font-weight:400;}
+h1.bold {
+  	font-size: 32px;
+  	margin-bottom: 20px;
+	font-weight:900;
+}
+
+
+p a,
+li a{
+	text-decoration:underline;
+	font-weight:600;
+	color:#fff !important;
+	text-shadow:0 0 10px rgba(0,0,0,.8);
+}
+
+
+#wp-submit{
+	background-color:#3a50a2 !important;
+	text-transform: uppercase;
+	padding: 10px 30px;  
+	font-size: 85%;
+	font-style:normal;
+	letter-spacing: 1px;
+	font-weight: 300;
+	color: #fff;
+	border-radius:30px;
+	-webkit-transition: all ease-in-out .2s;
+	-moz-transition: all ease-in-out .2s;
+	transition: all ease-in-out .2s;}
+	
+	#wp-submit:hover{
+	background: #f47524 !important;
+	-webkit-box-shadow:none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	}

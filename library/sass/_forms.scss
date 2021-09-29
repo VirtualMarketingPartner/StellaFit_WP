@@ -1,0 +1,72 @@
+/* ==========================================
+	Form Styles
+========================================== */
+.ginput_container{
+	
+	label.gfield_label{}
+	
+	input{}
+		
+	input:focus + label,
+	textarea:focus + label{}
+
+	input:valid + label,
+	textarea:valid + label{}
+	
+	textarea{}
+	
+}
+
+input.gform_button.button{
+	position:relative;
+	display:inline-block;
+	height:auto;
+	font-size:90%;
+	font-weight:bold;
+	letter-spacing:1.5px;
+	margin:20px 0;
+	padding:10px 40px;
+	text-decoration: none;
+	text-transform:uppercase;
+	text-align:center;
+	outline:none;
+	border:none;
+	background:$secondary;
+	color:$primary;
+	float:right;
+	@include border-radius(10px);
+	@include defaultTransition;
+
+
+	&:hover{}
+}
+
+/* Search Form */
+.searchform{
+	
+	div{
+		position:relative;
+		
+		label{
+			position:absolute;
+			z-index:2; 
+			left:15px; top:8px;
+			width:50%;
+			display:inline-block;
+		}
+		input#search{
+			position:relative;
+			width:100%;
+			border:none;
+			padding:0 50px 0 15px;
+			height:40px;
+			line-height:36px;
+			@include border-radius(20px);
+			
+			&:focus{
+				outline:none;
+				border:2px solid $primary;
+				@include border-radius(20px);}
+		}
+	}
+}

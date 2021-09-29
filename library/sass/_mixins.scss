@@ -1,0 +1,66 @@
+/* ==========================================
+	Mixins
+========================================== */
+
+// Default Font Styles 
+@mixin uppercase{
+	text-transform:uppercase; 
+	font-weight:bold;
+}
+
+// Default Transition
+@mixin defaultTransition{
+	-webkit-transition: all ease-in-out .2s;
+	-moz-transition:all ease-in-out .2s;
+	transition:all ease-in-out .2s;
+}
+
+// Default Shadow
+@mixin defaultShadow {
+    -webkit-box-shadow:0 0px 20px 0 rgba(204, 204, 204, .40);
+    -moz-box-shadow: 0 0px 20px 0 rgba(204, 204, 204, .40);
+    box-shadow: 0 0px 20px 0 rgba(204, 204, 204, .40);
+}
+
+// Box Shadow
+@mixin box-shadow($h, $v, $blur, $spread, $color) {
+    -webkit-box-shadow:$h $v $blur $spread $color;
+    -moz-box-shadow: $h $v $blur $spread $color;
+    box-shadow: $h $v $blur $spread $color;
+}
+
+// Border Radius
+@mixin border-radius($radius) {
+	-webkit-border-radius:$radius;
+	-moz-border-radius:$radius;
+	border-radius:$radius;
+}
+
+// Transition
+@mixin transition($all, $ease, $time) {
+	-webkit-transition:$all $ease $time;
+	-moz-transition:$all $ease $time;
+	transition:$all $ease $time;
+}
+
+// Gradient
+@mixin gradient($angle, $color1, $color-stop-1, $color2, $color-stop2){
+	background-image: linear-gradient($angle, $color1 $color-stop-1, $color2 $color-stop2);
+	background-color:$color1;
+}
+
+// Triangle
+@mixin triangle($bg, $width, $height){
+		background:$bg;
+		width: $width; height: $height;
+		margin:0 auto;
+		-webkit-clip-path: polygon(0% 0%, 100% 0%, 50% 50%);
+		clip-path:  polygon(0% 0%, 100% 0%, 50% 50%);
+}
+
+// Opacity
+@mixin opacity($ie, $decimal){
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=$ie)"; // IE8
+	filter: alpha(opacity=$ie); // IE 5-7
+	opacity: $decimal;
+}
