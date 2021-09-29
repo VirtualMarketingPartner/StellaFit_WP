@@ -30,9 +30,14 @@ body{
 	
 	&.primary{background:$primary;}
 	&.secondary{background:$secondary;}
-	&.accent{background:$accent;}
-	&.grey{background:$grey;}
-	&.off-white{background:$off-white;}
+	&.grey{
+		background:$grey; 
+		.text-wrapper{color:$black;}
+	}
+	&.white{
+		background:$white;
+		.text-wrapper{color:$black;}
+	}
 	&.black{background:$black;}
 	
 	&.bg{
@@ -45,7 +50,7 @@ body{
 	}
 }
 ::selection,
--moz::selection{background:$accent; color:$white;}
+-moz::selection{background:$secondary; color:$white;}
 
 h1, h2, h3, h4, h5, h6{
 	font-weight:600;
@@ -109,10 +114,10 @@ a{
 		
 	&.button{
 		text-transform:none;
-		padding:10px 20px;
+		padding:10px 30px;
 		color:$white;
 		background:$primary;
-		border-radius:0 20px;
+		border-radius:15px;
 		
 		i{
 			@include defaultTransition;
@@ -196,10 +201,9 @@ section.hero{
 		border-radius:0 180px 0 60px; 
 		overflow:hidden;}
 	
-	&.off-white{background-color: $off-white;}
-	&.grey{background-color: $grey;}
+	&.white{background-color: $white; color:$black;}
+	&.grey{background-color: $grey; color:$black;}
 	&.primary{ background-color: $primary; }
-	&.accent{ background-color: $accent; }
 	
 }
 
@@ -217,10 +221,9 @@ section.hero{
 		background-size:cover;
 		@include defaultTransition;
 		
-		&.off-white{background-color: $off-white;}
+		&.white{background-color: $white;}
 		&.grey{ background-color: $grey; }
 		&.primary{ background-color: $primary; }
-		&.accent{ background-color: $accent; }
 		
 	}
 	
@@ -241,7 +244,7 @@ section.hero{
 			display:block;
 			width:100%; height:5px;
 			border-radius:5px 5px 0 0;
-			background:$accent;}
+			background:$secondary;}
 	}
 	
 	&.simple{

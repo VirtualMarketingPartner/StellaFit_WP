@@ -3,20 +3,34 @@
 ========================================== */
 
 // fonts
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Poppins:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
 $sans: 'Poppins', sans-serif;
-$header: 'Libre Baskerville', serif;
+$header: 'Poppins', sans-serif;
 $icon: 'Font Awesome 5 Pro';
 
 // colors 
 $white: #fff;
-$off-white: #dae6ea;
-$black: #0c3344;
-$grey: #587375;
+$off-white: #f2f4f4;
+$black: #33333d;
+$grey: #f2f4f4;
 
-$primary: #20848c;
-$secondary: #0c3344;
-$accent: #bf856e;
+$primary: #e07955;
+$secondary: #4b608a;
 
 $trans : transparent;
+
+:root{
+	--white: #fff;
+	--off-white: #f2f4f4;
+	--black: #33333d;
+	--trans: transparent;
+
+	--primary: #e07955;
+	--orange: #e07955;
+	--secondary: #4b608a;
+	--dk-blue: #4b608a;
+	--lt-blue: #d8edec;
+
+
+}

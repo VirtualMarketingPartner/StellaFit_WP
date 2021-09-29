@@ -13,13 +13,19 @@
 	.navbar-nav {
 		ul li{
 			
-			a{font-size:80%;}
+			a{
+				font-size:80%;
+				border-bottom:3px solid $trans;
+
+				&:hover{color:$orange; 
+					border-bottom-color: $secondary;}
+			}
 			
 			&.button{
 				a{
 					text-transform:none;
 					background:$primary;
-					border-radius:0 20px;
+					border-radius:15px;
 
 					&:hover{
 						background:$secondary;

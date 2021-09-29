@@ -3,8 +3,8 @@
 ========================================== */
 #footer{
 	padding:50px 0 0;
-	background: $black;
-	color:$white;
+	background: $off-white;
+	color:$black;
 	font-size:80%;
 	
 	#footer-logo{
@@ -18,9 +18,9 @@
 		
 	}
 	
-	a{color:$white;}
-	
-	ul.socials li a:hover i{color:$accent !important;}
+	a{color:$black;}
+	ul.socials li a i{color:$primary !important;}
+	ul.socials li a:hover i{color:$secondary !important;}
 	
 	ul.menu{
 		margin:0; 
@@ -34,7 +34,7 @@
 				font-weight:bold;
 				text-transform:none;
 				
-				&:hover{color:$accent;}
+				&:hover{color:$secondary;}
 			}
 			
 			ul.sub-menu{
