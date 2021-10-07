@@ -8,8 +8,8 @@
 	font-size:80%;
 	
 	#footer-logo{
+		width:80%; 
 		height:auto;
-		min-height:180px;
 		background-position:top center;
 	}
 	
@@ -19,6 +19,7 @@
 	}
 	
 	a{color:$black;}
+	
 	ul.socials li a i{color:$primary !important;}
 	ul.socials li a:hover i{color:$secondary !important;}
 	

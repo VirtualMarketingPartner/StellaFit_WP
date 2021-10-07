@@ -1,42 +1,35 @@
-</div><!-- #body -->
+	</div><!-- #content -->
 
-<div id="footer" >
-	<div class="container-fluid" >
+	<div id="footer" >
+	<div class="container-fluid" id="footer_row1" >
 		<div class="container" >
 			<div class="row" >
-				<div class="col-12 col-md-5">
-					<div class="row" >
-						<div class="col-12 col-md-3" >
-							<a class="image-wrapper" id="footer-logo" href="<?php bloginfo('url'); ?>" style="background-image:url(<?php the_field('footer_logo', 'options'); ?>);" ></a>
-						</div><!-- .col -->
-						
-						<div class="col-12 col-md-9 text-center text-md-left" >
-							<?php the_field('footer_address','options'); ?>
-							<?php the_field('footer_phone', 'options'); ?>
-							<?php get_template_part('partials/socials'); ?>
-						</div><!-- .col -->
-					</div><!-- .row -->
+				<div class="col-12 col-md-4 text-center text-md-left" >
+					<a class="image-wrapper" id="footer-logo" href="<?php bloginfo('url'); ?>" style="background-image:url(<?php the_field('logo', 'options'); ?>);" ></a>
+					<?php the_field('footer_address','options'); ?>
 				</div><!-- .col -->
 				
-				<div class="col-12 col-md-7" >
-					<div class="row" >
-						<div class="col text-center text-md-right" >
-							<?php wp_nav_menu( array( 'theme_location' => 'main_menu' ) ); ?>
-						</div><!-- .col -->
-					</div><!--.row -->
-					
-					<div class="row" >
-						<div class="col text-center text-md-right" >
-							<br>
-							<?php the_field('copyright','options'); ?>
-						</div><!-- .col -->
-					</div><!-- .row -->
+				<div class="col-12 col-md-4 text-center text-md-left" >
+					<?php the_field('footer_phone','options'); ?>
+					<?php get_template_part('partials/socials'); ?>
+				</div><!-- .col -->
+				
+				<div class="col-12 col-md-3 text-center text-md-left" >
+					<h5>Menu</h5>
+					<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 				</div><!-- .col -->
 			</div><!-- .row -->
+			<hr>
+			<div class="row" >
+				<div class="col-12 text-center" >
+					<?php the_field('copyright', 'options'); ?>
+				</div><!-- .col -->
+			</div>
 		</div><!-- .container -->
-	</div><!-- .container-fluid -->
+	</div><!-- #footer_row1 -->
 </div><!-- #footer -->
 
-	<?php wp_footer(); ?>
+<?php wp_footer(); ?>
+
 </body>
 </html>

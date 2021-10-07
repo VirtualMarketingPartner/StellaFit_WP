@@ -183,7 +183,10 @@ section.hero{
 .vcenter{
 	align-items: end;
 	
-	.image-wrapper{}
+	.image-wrapper{
+		width:100%;
+		height:auto;
+	}
 }
 
 
