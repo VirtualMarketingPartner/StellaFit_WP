@@ -39,6 +39,26 @@ add_filter('excerpt_more', 'new_excerpt_more');
    CUSTOM BACKEND MENUS 
 ======================== */
 
+add_action( 'admin_menu', 'custom_resources_menu' );  
+function custom_resources_menu(){    
+	$resources_page_title = 'Resources';   
+	$resources_menu_title = 'Resources';   
+	$resources_capability = 'manage_options';   
+	$resources_menu_slug  = 'resources';   
+	$resources_function   = 'post';   
+	$resources_icon_url   = 'dashicons-open-folder';   
+	$resources_position   = 22;    
+	
+	add_menu_page( 
+		$resources_page_title,                  
+		$resources_menu_title,                   
+		$resources_capability,                   
+		$resources_menu_slug,                   
+		$resources_function,                   
+		$resources_icon_url,                   
+		$resources_position ); 
+}
+
 
 /* ======================== 
    CUSTOM SHORTCODES 
