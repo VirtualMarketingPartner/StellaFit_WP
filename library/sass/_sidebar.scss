@@ -1,0 +1,20 @@
+/* ==========================================
+	Sidebar
+========================================== */
+.sidebarBlock{
+    @include defaultShadow;
+    @include border-radius(5px);
+
+    .image-wrapper{
+        width:100%;
+        min-height:150px;
+        background-size:cover;
+        background-repeat:no-repeat;
+        background-position:center center;
+        border-radius:5px 5px 0 0;
+    }
+
+    .content{
+        padding:10px;
+    }
+}
