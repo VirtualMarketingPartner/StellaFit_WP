@@ -36,6 +36,21 @@ function new_excerpt_more($more) {
 add_filter('excerpt_more', 'new_excerpt_more');
 
 /* ======================== 
+   REGISTER SIDEBAR 
+======================== */
+
+function sf_widgets_init() {
+    register_sidebar( array(
+        'name'          => __( 'Blog Sidebar', 'Stellafit' ),
+        'id'            => 'sidebar',
+        'before_widget' => '<aside id="%1$s" class="sidebarBlock %2$s">',
+        'after_widget'  => '</aside>',
+        'before_title'  => '<h3">',
+        'after_title'   => '</h3>',
+    ) );
+} add_action( 'widgets_init', 'sf_widgets_init' );
+
+/* ======================== 
    CUSTOM BACKEND MENUS 
 ======================== */
 

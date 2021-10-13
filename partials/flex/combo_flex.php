@@ -1,7 +1,7 @@
 <?php
-	$contentCol = get_sub_field('content_width'); 
-	$imageCol = get_sub_field('image_width'); 
-	$imageSize = get_sub_field('image_cover');
+	$contentCol = 8; //get_sub_field('content_width'); 
+	$imageCol = 4; //get_sub_field('image_width'); 
+	$imageSize =  cover; //get_sub_field('image_cover');
 ?>
 <div class="container combo_flex" >
 	<div class="row vcenter" >
