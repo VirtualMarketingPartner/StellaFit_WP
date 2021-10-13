@@ -7,7 +7,9 @@
 		</div><!-- .col -->
 	</div><!-- .row -->
 	
-	<div class="row post-card-row" >
+	<div class="row" >
+		<div class="col-12 col-md-8 post-body" >
+		<div class="post-card-row" >
 		<?php 
 			$type = get_sub_field('posts');
 			$range = get_sub_field('number_posts');
@@ -25,40 +27,34 @@
 		
 		<?php if( $type == 'post' ): ?>
 		<div class="col-12 <?php echo $colMD; ?>" >
-			<div class="card top" >
-				<div class="card-body" >
-					<p class="sub-title" ><?php echo get_the_date('M d, Y'); ?></p>
-					<p class="title" ><?php the_title(); ?></p>
-					<?php the_excerpt(); ?>
-					<a class="button inverted" href="<?php the_permalink(); ?>"><?php the_field('read_more', 'options'); ?></a>
-				</div><!-- .card-body -->
-			</div><!-- .card -->
-		</div><!-- .col -->
-		
-		<?php elseif( $type == 'service' ): ?>
-		<div class="col-12 <?php echo $colMD; ?>" >
 			<div class="card" >
 				<div class="card-body" >
-					<?php echo get_the_date('M d, Y'); ?><br>
-					<?php the_title(); ?><br>
+					<p class="sub-title" ><?php echo get_the_date('M d, Y'); ?></p>
+					<a class="title" href="<?php the_permalink(); ?>" ><?php the_title(); ?></a>
 					<?php the_excerpt(); ?>
 					<a class="button inverted" href="<?php the_permalink(); ?>"><?php the_field('read_more', 'options'); ?></a>
 				</div><!-- .card-body -->
 			</div><!-- .card -->
 		</div><!-- .col -->
-		
-	
+
 		<?php else: // else if not a specified type ?>
-		<div class="col-12 col-md-4" >
+			<div class="col-12 <?php echo $colMD; ?>" >
 			<div class="card" >
 				<div class="card-body" >
 					<p class="sub-title" ><?php echo get_the_date('M d, Y'); ?></p>
-					<p class="title" ><?php the_title(); ?></p>
-					<a class="button inverted" href="<?php the_permalink(); ?>"><?php the_field('learn_more_label', 'options'); ?></a>
+					<a class="title" href="<?php the_permalink(); ?>" ><?php the_title(); ?></a>
+					<a class="button inverted" href="<?php the_permalink(); ?>"><?php the_field('read_more', 'options'); ?></a>
 				</div><!-- .card-body -->
 			</div><!-- .card -->
 		</div><!-- .col -->
 		
 		<?php endif; endwhile; wp_reset_postdata(); ?>
-	</div><!-- .row .post-card-row -->
+	</div><!-- .post-card-row -->
+		</div><!-- .post-body -->
+
+		<div class="col-12 col-md-4 offset-lg-1 col-lg-3 post-sidebar" >
+			<?php get_sidebar(); ?>
+		</div><!-- .post-sidebar -->
+	</div><!-- .row -->
+
 </div><!-- .container -->

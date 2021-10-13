@@ -9,9 +9,9 @@
 		<div class="container" >
 			
 			<div class="row" >
-				<div class="col-12 col-md-8 col-lg-8 post-body" >
+				<div class="col-12 col-md-8 post-body" >
                     <div class="text-wrapper" >
-                    <p class="date" ><?php the_date(); ?></p>
+                    <p class="sub-title" ><?php the_date(); ?></p>
                         <h1><?php the_title(); ?></h1>
                         <?php the_content(); ?>
                     </div><!-- .text-wrapper -->
