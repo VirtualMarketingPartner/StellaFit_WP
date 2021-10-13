@@ -13,8 +13,18 @@
 		<?php 
 			$type = get_sub_field('posts');
 			$range = get_sub_field('number_posts');
-			$post_query = new WP_Query( array('post_type'=>$type, 'posts_per_page'=>$range, 'sort_by'=>'ASC') ); ?>
-		<?php while ( $post_query->have_posts() ) : $post_query->the_post(); ?> 
+			$paginated = get_sub_field('include_archive');
+			$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+			$count = get_sub_field('number_posts');
+
+			if($paginated):// if pagination is set use the default number of posts
+				$args = array('post_type'=>$type, 'order'=>$sort, 'paged'=>$paged, 'post_status' => $status);
+			else: // otherwise, check the count
+				$args = array('post_type'=>$type, 'posts_per_page'=>$count, 'order'=>$sort, 'paged'=>$paged, 'post_status' => $status);
+			endif;
+
+			$post_query = new WP_Query( $args ); ?>
+		<?php $pCount=0; while ( $post_query->have_posts() ) : $post_query->the_post(); ?> 
 		
 		<?php 
 		$col = get_sub_field('col_num');
@@ -56,5 +66,17 @@
 			<?php get_sidebar(); ?>
 		</div><!-- .post-sidebar -->
 	</div><!-- .row -->
+	
+	<?php if($paginated): ?>
+	<div class="row" id="pagination" >
+		<div class="col-12 col-md-6 text-left" >
+			<p><?php next_posts_link( '<i class="fas fa-arrow-to-left"></i> More', $post_query->max_num_pages ); ?></p>
+		</div><!-- .col -->
+
+		<div class="col-12 col-md-6 text-right" >
+			<p><?php previous_posts_link( 'Less <i class="fas fa-arrow-to-right"></i>', $post_query->max_num_pages ); ?></p>
+		</div><!-- .col -->
+	</div><!-- .row -->
+	<?php endif; ?>
 
 </div><!-- .container -->
