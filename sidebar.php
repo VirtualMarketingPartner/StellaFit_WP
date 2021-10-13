@@ -1,3 +1,7 @@
+<h3>Follow StellaFit</h3>
+<?php get_template_part('/partials/socials'); ?>
+<br/>
+
 <?php if(have_rows('sidebar', 'options')): while(have_rows('sidebar', 'options')): the_row(); ?>
 <div class="sidebarBlock" >
     <?php if(get_sub_field('image')): ?>
