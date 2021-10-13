@@ -27,13 +27,16 @@ function my_theme_add_editor_styles(){
 }
 add_action( 'init', 'my_theme_add_editor_styles' );
 
-
 // Remove the excerpt "Read More" text 
 function new_excerpt_more($more) {
        global $post;
 	return '';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
+
+// Support for Featured Images
+add_theme_support( 'post-thumbnails' );
+
 
 /* ======================== 
    CUSTOM BACKEND MENUS 
