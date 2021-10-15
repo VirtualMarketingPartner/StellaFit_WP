@@ -687,9 +687,9 @@ section.hero .hero-text {
 }
 
 #footer #footer-logo {
-  width: 80%;
-  height: auto;
-  background-position: top center;
+  width: 100%;
+  height: 90px;
+  background-position: left;
 }
 
 #footer p strong {
@@ -735,6 +735,21 @@ section.hero .hero-text {
 
 #footer ul.menu li ul.sub-menu li {
   margin-left: 0;
+}
+
+#footer .menu ul {
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+  padding-left: 12px;
+}
+
+#footer .menu ul .children {
+  display: none;
+}
+
+#footer hr {
+  border-color: #cbcaca;
 }
 
 /* ==========================================
