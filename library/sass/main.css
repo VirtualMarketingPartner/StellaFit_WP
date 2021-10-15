@@ -367,10 +367,14 @@ a:hover, a:focus, a:active {
 
 a.button {
   text-transform: none;
-  padding: 10px 30px;
+  padding: 8px 18px;
   color: #fff;
   background: #e07955;
-  border-radius: 15px;
+  border-radius: 7px;
+  font-size: 87.5%;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.3;
 }
 
 a.button i {
@@ -406,7 +410,7 @@ a.button.inverted:hover:after {
 a.button.inverted:after {
   content: "";
   width: 100%;
-  height: 3px;
+  height: 1px;
   background: #e07955;
   position: absolute;
   bottom: 0;
@@ -611,7 +615,12 @@ section.hero .hero-text {
 #header .navbar-nav ul li.button a {
   text-transform: none;
   background: #e07955;
-  border-radius: 15px;
+  border-radius: 7px;
+  padding: 8px 18px;
+  font-size: 87.5%;
+  font-weight: 600;
+  letter-spacing: 0;
+  border-bottom: none;
 }
 
 #header .navbar-nav ul li.button a:hover {
@@ -624,7 +633,7 @@ section.hero .hero-text {
 }
 
 #header .navbar-nav ul li.button a:after {
-  content: '\f105';
+  content: "\f105";
   font-family: "Font Awesome 5 Pro";
   margin-left: 10px;
   -webkit-transition: all ease-in-out .2s;
@@ -643,7 +652,7 @@ section.hero .hero-text {
 }
 
 #header .navbar-nav .sub-menu:before {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   left: 25px;

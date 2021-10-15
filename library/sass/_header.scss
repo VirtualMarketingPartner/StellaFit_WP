@@ -2,75 +2,87 @@
 	Sticky Nav
 ========================================== */
 
-#header{
-	
-	.container{padding:0 15px;}
-	
-	#site_id{
-		height:45px;
-	}
-	
-	.navbar-nav {
-		ul li{
-			
-			a{
-				font-size:80%;
-				border-bottom:3px solid $trans;
+#header {
+  .container {
+    padding: 0 15px;
+  }
 
-				&:hover{color:var(--oragen); 
-					border-bottom-color: $secondary;}
-			}
-			
-			&.button{
-				a{
-					text-transform:none;
-					background:$primary;
-					border-radius:15px;
+  #site_id {
+    height: 45px;
+  }
 
-					&:hover{
-						background:$secondary;
-						color:$white;}
-					
-					&:hover > :after{margin-left:20px;}
-					
-					&:after{
-						content:'\f105';
-						font-family:$icon;
-						margin-left:10px;
-						@include defaultTransition;}
+  .navbar-nav {
+    ul li {
+      a {
+        font-size: 80%;
+        border-bottom: 3px solid $trans;
 
-				}
-				
-			}
-		}
-		
-		.sub-menu{
-			position: absolute;
-			width: 230px;
-			left: 0;
-			top: 50px;
-			background:$white;
-			display: none;
-			overflow: visible;
-			@include border-radius(0);
-			
-			&:before{
-				content:'';
-				display:block;
-				position:absolute;
-				left:25px; top:-8px;
-				width:0; height:0;
-				border-left:8px solid transparent;
-				border-right:8px solid transparent;
-				border-bottom:8px solid $white;
-			}
-			
-			li:hover{background:$trans;}
-			
-			li a:hover{color:$secondary !important;}
-			
-		}
-		
-	}
-	
+        &:hover {
+          color: var(--oragen);
+          border-bottom-color: $secondary;
+        }
+      }
+
+      &.button {
+        a {
+          text-transform: none;
+          background: $primary;
+          border-radius: 7px;
+          padding: 8px 18px;
+          font-size: 87.5%;
+          font-weight: 600;
+          letter-spacing: 0;
+          border-bottom: none;
+
+          &:hover {
+            background: $secondary;
+            color: $white;
+          }
+
+          &:hover > :after {
+            margin-left: 20px;
+          }
+
+          &:after {
+            content: "\f105";
+            font-family: $icon;
+            margin-left: 10px;
+            @include defaultTransition;
+          }
+        }
+      }
+    }
+
+    .sub-menu {
+      position: absolute;
+      width: 230px;
+      left: 0;
+      top: 50px;
+      background: $white;
+      display: none;
+      overflow: visible;
+      @include border-radius(0);
+
+      &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 25px;
+        top: -8px;
+        width: 0;
+        height: 0;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-bottom: 8px solid $white;
+      }
+
+      li:hover {
+        background: $trans;
+      }
+
+      li a:hover {
+        color: $secondary !important;
+      }
+    }
+  }
 }

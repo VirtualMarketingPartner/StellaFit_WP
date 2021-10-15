@@ -150,10 +150,14 @@ a {
 
   &.button {
     text-transform: none;
-    padding: 10px 30px;
+    padding: 8px 18px;
     color: $white;
     background: $primary;
-    border-radius: 15px;
+    border-radius: 7px;
+    font-size: 87.5%;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 1.3;
 
     i {
       @include defaultTransition;
@@ -188,7 +192,7 @@ a {
       &:after {
         content: "";
         width: 100%;
-        height: 3px;
+        height: 1px;
         background: $primary;
         position: absolute;
         bottom: 0;
