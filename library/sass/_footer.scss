@@ -75,4 +75,12 @@
   hr {
     border-color: $light-grey;
   }
+
+  .copyright {
+    font-weight: 600;
+
+    a {
+      background-image: none;
+    }
+  }
 }

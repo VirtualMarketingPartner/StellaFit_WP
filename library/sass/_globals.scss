@@ -342,3 +342,13 @@ section.hero {
   font-weight: bold;
   margin-bottom: 5px;
 }
+
+blockquote {
+  border: none;
+  padding: 90px 0;
+  color: $white;
+
+  strong {
+    font-size: 112.5%;
+  }
+}

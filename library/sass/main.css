@@ -562,6 +562,16 @@ section.hero .hero-text {
   margin-bottom: 5px;
 }
 
+blockquote {
+  border: none;
+  padding: 90px 0;
+  color: #fff;
+}
+
+blockquote strong {
+  font-size: 112.5%;
+}
+
 /* ==========================================
 	Layout
 ========================================== */
@@ -750,6 +760,14 @@ section.hero .hero-text {
 
 #footer hr {
   border-color: #cbcaca;
+}
+
+#footer .copyright {
+  font-weight: 600;
+}
+
+#footer .copyright a {
+  background-image: none;
 }
 
 /* ==========================================
