@@ -244,7 +244,10 @@ section.hero {
 
 .image-wrapper {
   position: relative;
-  min-height: 450px;
+  min-height: 350px;
+  border-radius: 140px 20px;
+  -webkit-box-shadow: 18px 21px 0px -4px $grey;
+  box-shadow: 18px 21px 0px -4px $grey;
 
   &.shape {
     border-radius: 0 180px 0 60px;

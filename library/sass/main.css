@@ -459,7 +459,10 @@ section.hero .hero-text {
 
 .image-wrapper {
   position: relative;
-  min-height: 450px;
+  min-height: 350px;
+  border-radius: 140px 20px;
+  -webkit-box-shadow: 18px 21px 0px -4px #f2f4f4;
+  box-shadow: 18px 21px 0px -4px #f2f4f4;
 }
 
 .image-wrapper.shape {
