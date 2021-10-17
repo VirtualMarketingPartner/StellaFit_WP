@@ -19,9 +19,9 @@
 				$count = get_sub_field('number_posts');
 
 				if($paginated):// if pagination is set use the default number of posts
-					$args = array('post_type'=>$type, 'order'=>$sort, 'paged'=>$paged, 'post_status' => $status);
+					$args = array('post_type'=>$type, 'paged'=>$paged );
 				else: // otherwise, check the count
-					$args = array('post_type'=>$type, 'posts_per_page'=>$count, 'order'=>$sort, 'paged'=>$paged, 'post_status' => $status);
+					$args = array('post_type'=>$type, 'posts_per_page'=>$count, 'paged'=>$paged);
 				endif;
 
 				$post_query = new WP_Query( $args ); ?>
