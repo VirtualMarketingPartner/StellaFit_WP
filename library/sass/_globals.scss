@@ -222,10 +222,36 @@ section.hero {
 }
 
 .carousel-item {
-  padding: 100px 0;
+  padding: 25px 0;
   color: var(--black);
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.carousel-navigation{
+  .button{
+    height:30px; width:30px;
+    padding:0; 
+    line-height:30px;
+    border-radius: 50%;
+    background:var(--secondary);
+    color:var(--white);
+
+    i{
+      padding:0; 
+      margin-left: 0; 
+      color:var(--white);}
+
+    &.carousel-prev{
+      background:var(--white);
+      color:var(--secondary);
+      font-family: $icon;
+
+      i{color:var(--secondary);}
+    }
+
+    &:hover > i{margin:0; padding:0;}
+  }
 }
 
 .vcenter {
@@ -349,7 +375,7 @@ section.hero {
 blockquote {
   border: none;
   padding: 90px 0;
-  color: $white;
+  color: var(--off-white);
 
   strong {
     font-size: 112.5%;
