@@ -20,13 +20,10 @@
         <h3>Categories</h3>
         <ul class="sidebar-posts">
             <?php 
-            $args= array(
-            'type' => 'your-it-consultant'
-            );
             $cats = get_categories($args);
             foreach($cats as $category): ?>
             <li>
-                <i class="fas fa-bookmark"></i>
+                <?php the_field('icon', $category); ?>
                 <a href="/category/<?php echo $category->slug; ?>" >
                     <span class="text-left" ><?php echo $category->name; ?></span>
                     <span class="text-right" ><?php echo $category->category_count; ?></span>
