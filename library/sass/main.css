@@ -628,6 +628,27 @@ blockquote strong {
   padding: 25px;
 }
 
+ul.socials li a i {
+  color: #e07955 !important;
+}
+
+.sidebarBlock {
+  padding: 15px;
+}
+
+.sidebarBlock ul.sidebar-posts {
+  list-style-type: none;
+  padding: 1px;
+}
+
+.sidebarBlock ul.sidebar-posts li i {
+  color: #4b608a !important;
+}
+
+.sidebarBlock ul.sidebar-posts li a {
+  color: #4b608a !important;
+}
+
 /* ==========================================
 	Layout
 ========================================== */

@@ -401,3 +401,28 @@ blockquote {
   box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.1);
   padding: 25px;
 }
+
+ul.socials {
+  li {
+    a {
+      i {
+        color: $primary !important;
+      }
+    }
+  }
+}
+.sidebarBlock {
+  padding: 15px;
+  ul.sidebar-posts {
+    list-style-type: none;
+    padding: 1px;
+    li {
+      i {
+        color: $secondary !important;
+      }
+      a {
+        color: $secondary !important;
+      }
+    }
+  }
+}
