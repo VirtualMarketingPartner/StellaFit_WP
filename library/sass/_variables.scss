@@ -4,10 +4,23 @@
 
 // fonts
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+@font-face {
+  font-family: "September Mornings";
+  src: url("/../../SeptemberMornings.eot");
+  src: url("/../../SeptemberMornings.eot?#iefix") format("embedded-opentype"),
+    url("/../../SeptemberMornings.woff2") format("woff2"),
+    url("/../../SeptemberMornings.woff") format("woff"),
+    url("/../../SeptemberMornings.ttf") format("truetype"),
+    url("/../../SeptemberMornings.svg#SeptemberMornings") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  // font-display: swap;
+}
 
 $sans: "Poppins", sans-serif;
+$septembermornings: "September Mornings";
 $header: "Poppins", sans-serif;
-$icon: "Font Awesome 5 Pro";
+$icon: "Font Awesome 6 Pro";
 
 // colors
 $white: #fff;
