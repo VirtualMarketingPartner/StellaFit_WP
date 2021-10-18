@@ -21,6 +21,10 @@
     background: none;
   }
 
+  h6 {
+    margin-bottom: 5px;
+  }
+
   p {
     strong {
       font-size: 120%;
@@ -31,8 +35,15 @@
     color: $black;
   }
 
-  ul.socials li a i {
-    color: $primary !important;
+  ul.socials {
+    margin-top: 20px;
+    li {
+      a {
+        i {
+          color: $primary !important;
+        }
+      }
+    }
   }
   ul.socials li a:hover i {
     color: $secondary !important;
@@ -86,8 +97,6 @@
   }
 
   .copyright {
-    font-weight: 600;
-
     a {
       background-image: none;
     }
