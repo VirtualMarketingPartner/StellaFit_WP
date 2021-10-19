@@ -14,6 +14,7 @@
 			<div class="row post-card-row" >
 				<?php 
 					$type = get_sub_field('posts');
+					$excerpt = get_sub_field('excerpt');
 					$range = get_sub_field('number_posts');
 					$paginated = get_sub_field('include_archive');
 					$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
@@ -40,11 +41,20 @@
 				<?php if( $type == 'post' ): ?>
 				<div class="col-12 <?php echo $colMD; ?>" >
 					<div class="postItem" >
-						<div class="postItemBody" >
-							<p class="sub-title" ><?php echo get_the_date('M d, Y'); ?></p>
-							<a class="title" href="<?php the_permalink(); ?>" ><?php the_title(); ?></a>
-							<?php the_excerpt(); ?>
-							<a class="button inverted" href="<?php the_permalink(); ?>"><?php the_field('read_more', 'options'); ?></a>
+						<div class="row postItemBody" >
+							<div class="col-12 col-md-4">
+								<div class="imageWrapper circle" style="background-image:url(<?php echo $catImg; ?>);"></div>
+							</div>
+							<div class="col-12 col-md-8" >
+								<p class="sub-title" ><?php echo get_the_date('M d, Y'); ?></p>
+								<a class="title" href="<?php the_permalink(); ?>" ><?php the_title(); ?></a>
+								<?php if($excerpt): ?>
+									<p><?php the_excerpt(); ?></p>
+								<?php else: ?>
+									<br>
+								<?php endif; ?>
+								<a class="button inverted" href="<?php the_permalink(); ?>"><?php the_field('read_more', 'options'); ?></a>
+							</div>
 						</div><!-- .postItemBody -->
 					</div><!-- .postItem -->
 				</div><!-- .col -->

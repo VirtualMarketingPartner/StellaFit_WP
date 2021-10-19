@@ -1,11 +1,19 @@
 /* ==========================================
 	Layout
 ========================================== */
-.column_flex{
+.container-fluid section.column_flex{
 	padding:50px 0;
+}
+
+.container-fluid section.slide_flex{
+	padding:50px 0 100px;
 }
 
 
 .post{
 	margin-top:50px;
+}
+
+.postItem{
+	background:var(--white);
 }

@@ -2,7 +2,7 @@
     <div class="container" >
         <div class="row" >
             <div class="col-12 offset-md-1 col-md-10" >
-                <div class="row" >
+                <div class="row vcenter" >
                     <div class="col-12 col-md-4" >
                         <div class="image-wrapper" style="background-image:url(<?php the_sub_field('image'); ?>);" ></div>
                     </div>

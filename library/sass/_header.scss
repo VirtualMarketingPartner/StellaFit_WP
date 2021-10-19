@@ -8,13 +8,12 @@
   }
 
   #site_id {
-    height: 45px;
+    height: 60px;
   }
 
   .navbar-nav {
     ul li {
       a {
-        font-size: 80%;
         border-bottom: 3px solid $trans;
 
         &:hover {
