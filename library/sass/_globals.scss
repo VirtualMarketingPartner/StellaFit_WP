@@ -54,6 +54,9 @@ body {
   }
   &.black {
     background: $black;
+    .text-wrapper {
+      color: $white;
+    }
   }
 
   &.bg {
@@ -365,9 +368,8 @@ blockquote {
   border: none;
   width:60%;
   margin: 0 auto;
-  padding: 90px 0;
+  padding: 50px 0;
   font-weight: 800;
-  color: var(--off-white);
 
   strong{
     line-height:.6;
