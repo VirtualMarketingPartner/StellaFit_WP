@@ -634,7 +634,12 @@ ul.socials li a i {
 }
 
 .sidebarBlock ul.sidebar-posts li a {
-  color: #4b608a !important;
+  color: #1e2530 !important;
+  margin-left: 3px;
+}
+
+.sidebarBlock ul.sidebar-posts .text-right {
+  float: right;
 }
 
 .sidebarBlock h3 {
@@ -653,8 +658,16 @@ ul.socials li a i {
   width: 100%;
   border-radius: 50px;
   border: 1px solid #d1d1d1;
-  padding: 5px 20px;
+  padding: 0;
   background: none;
+}
+
+.sidebarBlock #searchsubmit i {
+  color: #fff;
+  background: #4b608a;
+  padding: 13px;
+  border-radius: 50px;
+  float: right;
 }
 
 .sidebarBlock #searchsubmit h3 {
@@ -713,13 +726,24 @@ ul.socials li a i {
   height: 60px;
 }
 
+#header .navbar-nav ul li {
+  padding: 0 5px;
+}
+
 #header .navbar-nav ul li a {
   border-bottom: 3px solid transparent;
+  font-weight: 400;
+  text-transform: initial;
 }
 
 #header .navbar-nav ul li a:hover {
   color: var(--oragen);
   border-bottom-color: #4b608a;
+  font-weight: 900;
+}
+
+#header .navbar-nav ul li.button {
+  margin-left: 25px;
 }
 
 #header .navbar-nav ul li.button a {
@@ -754,11 +778,13 @@ ul.socials li a i {
   position: absolute;
   width: 230px;
   left: 0;
-  top: 50px;
+  top: 60px;
   background: #fff;
   display: none;
   overflow: visible;
   border-radius: 0;
+  -webkit-box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.1);
 }
 
 #header .navbar-nav .sub-menu:before {
