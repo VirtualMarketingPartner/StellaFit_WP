@@ -269,10 +269,10 @@ section.hero {
     width: 350px;
     height: auto;
     border-radius: 140px 20px;
-    box-shadow: 20px 25px 0px -4px rgba(0,0,0,.08);
+    box-shadow: 20px 25px 0px -4px rgba(0, 0, 0, 0.08);
 
-    &.circle{
-      border-radius:50%;
+    &.circle {
+      border-radius: 50%;
       box-shadow: none;
     }
   }
@@ -287,10 +287,9 @@ section.hero {
   position: relative;
   min-height: 350px;
   width: 350px;
-  
 
   &.shape {
-    display:none;
+    display: none;
   }
 }
 
@@ -366,16 +365,16 @@ section.hero {
 
 blockquote {
   border: none;
-  width:60%;
+  width: 60%;
   margin: 0 auto;
   padding: 50px 0;
   font-weight: 800;
 
-  strong{
-    line-height:.6;
-    font-weight:400;
+  strong {
+    line-height: 0.6;
+    font-weight: 400;
     font-family: $script;
-    font-size:500%;
+    font-size: 500%;
   }
 }
 
@@ -397,16 +396,44 @@ ul.socials {
 }
 .sidebarBlock {
   padding: 15px;
+  margin-bottom: 40px;
+
   ul.sidebar-posts {
     list-style-type: none;
     padding: 1px;
     li {
+      padding: 7px 0;
+      border-bottom: 1px solid $dark-grey;
       i {
         color: $secondary !important;
       }
       a {
         color: $secondary !important;
       }
+    }
+  }
+  h3 {
+    font-size: 23px;
+    margin-bottom: 0;
+  }
+  #mc_embed_signup_scroll {
+    input {
+      width: 100%;
+      border-radius: 50px;
+      border: 1px solid $dark-grey;
+      padding: 5px 20px;
+    }
+  }
+
+  #searchsubmit {
+    width: 100%;
+    border-radius: 50px;
+    border: 1px solid $dark-grey;
+    padding: 5px 20px;
+    background: none;
+
+    h3 {
+      margin-bottom: 0;
     }
   }
 }
