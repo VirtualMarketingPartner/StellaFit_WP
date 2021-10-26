@@ -22,7 +22,8 @@
 			$layout = get_sub_field('layout');
 			?>
 
-			<div class="row post-card-row <?php if($type == 'news'){ echo 'grid';} ?>" >
+			<div class="row post-card-row " >
+                <h1><?php echo $layout; ?></h1>
 				<?php
 				if ($paginated) : // if pagination is set use the default number of posts
 					$args = array('post_type' => $type, 'paged' => $paged);
@@ -46,50 +47,9 @@
 						$colMD = "col-md-3";
 					}?>
 
-					<!-- BLOG POST -->
-					<?php if ($type == 'post') : ?>
-					<div class="col-12 <?php echo $colMD; ?>">
-						<div class="postItem <?php if (!$sidebar) { echo 'card'; } ?> ">
-							<div class="row postItemBody">
-								<div class="col-12 col-md-3">
-									<div class="imageWrapper circle" style="background-image:url(<?php echo $catImg; ?>);"></div>
-								</div>
-								<div class="col-12 col-md-9">
-									<p class="sub-title"><?php echo get_the_date('M d, Y'); ?></p>
-									<a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-									<?php if ($excerpt) : ?>
-										<p><?php the_excerpt(); ?></p>
-									<?php else : ?>
-										<br>
-									<?php endif; ?>
-									<a class="button inverted" href="<?php the_permalink(); ?>"><?php the_field('read_more', 'options'); ?></a>
-								</div>
-							</div><!-- .postItemBody -->
-						</div><!-- .postItem -->
-					</div><!-- .col -->
-
-					<!-- NEWS -->
-					<?php elseif ($type == 'news'): ?>
-					<div class="gridItem" >
-					<?php if(have_rows('hero')): while(have_rows('hero')): the_row(); 
-						$style = get_sub_field('style');
-						$bgColor = get_sub_field('color');
-						$bgImage = get_sub_field('hero_image'); 
-						$bgPos = get_sub_field('hero_position');
-					?>
-						<div class="articleThumb" style="background-image:url(<?php echo $bgImage; ?>); background-color:var(--<?php echo $bgColor; ?> );background-position:<?php echo $bgPos; ?>">
-							<div class="articleText" >
-								<p class="date"><?php echo get_the_date('M d, Y'); ?></p>
-								<p class="title" ><?php the_title(); ?></p>
-								<a href="<?php the_permalink();?>" ><?php the_field('read_more', 'options'); ?></a>
-							</div>
-							<div class="overlay" ></div>
-						</div>
-					<?php endwhile; endif; ?>
-					</div>
 					
 					<!-- PROGRAMS -->
-					<?php elseif($type == 'programs' && $layout == 'card'): ?>
+					<?php if($type == 'programs' && $layout == 'card'): ?>
 						<?php if(have_rows('hero')): while(have_rows('hero')): the_row(); 
 							$style = get_sub_field('style');
 							$bgColor = get_sub_field('color');
@@ -99,7 +59,6 @@
 						<div class="card">
 							<div class="image-wrapper" style="background-image:url(<?php echo $bgImage; ?>); background-color:var(--<?php echo $bgColor; ?>); background-position:<?php echo $bgPos; ?>"></div>
 							<div class="card-body" >
-								<h1>Cards</h1>
 								<p class="title" ><?php the_title(); ?></p>
 							</div>
 						</div>
@@ -116,13 +75,12 @@
 						<div class="card">
 							<div class="image-wrapper" style="background-image:url(<?php echo $bgImage; ?>); background-color:var(--<?php echo $bgColor; ?>); background-position:<?php echo $bgPos; ?>"></div>
 							<div class="card-body" >
-								<h1>Carousel</h1>
 								<p class="title" ><?php the_title(); ?></p>
 							</div>
 						</div>
 					<?php endwhile; endif; ?>
 
-					<?php else : // else if not a specified type 
+					<?php else : // else if not specified 
 					?>
 					<div class="col-12 <?php echo $colMD; ?>">
 						<div class="card">
