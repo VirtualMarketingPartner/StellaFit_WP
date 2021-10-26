@@ -16,7 +16,7 @@
 
 				<div class="col-12 col-md-3 text-center text-md-left">
 					<h6>Menu</h6>
-					<?php wp_nav_menu(array('theme_location' => 'primary')); ?>
+					<?php wp_nav_menu(array('theme_location' => 'main_menu')); ?>
 				</div><!-- .col -->
 			</div><!-- .row -->
 			<hr>
