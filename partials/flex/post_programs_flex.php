@@ -2,14 +2,6 @@
 
 <div class="container post_flex">
 	<div class="row">
-		<div class="col-12">
-			<div class="text-wrapper animate slow">
-				<?php the_sub_field('content'); ?>
-			</div><!-- .text-wrapper -->
-		</div><!-- .col -->
-	</div><!-- .row -->
-
-	<div class="row">
 		<div class="col-12 <?php if ($sidebar) { echo 'col-md-8';} ?> post-body">
 			<?php 
 			$type = get_sub_field('posts');
@@ -23,7 +15,6 @@
 			?>
 
 			<div class="row post-card-row " >
-                <h1><?php echo $layout; ?></h1>
 				<?php
 				if ($paginated) : // if pagination is set use the default number of posts
 					$args = array('post_type' => $type, 'paged' => $paged);
@@ -32,8 +23,63 @@
 				endif;
 
 				$post_query = new WP_Query($args); ?>
-				<?php  while ($post_query->have_posts()) : $post_query->the_post(); ?>
+				
+				<!-- PROGRAMS AS CAROUSEL -->
+				<?php if($layout == 'carousel'): ?>
+				<div class="col-12" >
+					<div class="row" >
+						<div class="col-12 col-md-3" >
+							<?php the_sub_field('content'); ?>
+							<br />
+							<div class="carousel-navigation text-center text-md-right" >
+								<a class="carousel-prev button" href="#carousel" role="button" data-slide="prev" >
+									<i class="fa-solid fa-arrow-left-long"></i>
+									<span class="sr-only" >Previous</span>
+								</a>
+								<a class="carousel-next button" href="#carousel" role="button" data-slide="next" >
+									<i class="fa-solid fa-arrow-right-long"></i>
+									<span class="sr-only" >Next</span>
+								</a>
+							</div><!-- .carousel-nav -->
+						</div>
+						<div class="col-12 col-md-9" >
+							<div class="row" >
+								<div class="col-12" >
+									<div id="carousel" class="carousel slide" data-ride="carousel" >
+										<div class="carousel-inner" >
+											<?php $pCount = 0; while ($post_query->have_posts()): $post_query->the_post(); ?>
+											<?php if(have_rows('hero')): while(have_rows('hero')): the_row(); 
+												$style = get_sub_field('style');
+												$bgColor = get_sub_field('color');
+												$bgImage = get_sub_field('hero_image'); 
+												$bgPos = get_sub_field('hero_position');
+											?>
+											<div class="carousel-item <?php if( $pCount == 0 ){echo 'active'; } ?> " >
+												<div class="card">
+													<div class="image-wrapper" style="background-image:url(<?php echo $bgImage; ?>); background-color:var(--<?php echo $bgColor; ?>); background-position:<?php echo $bgPos; ?>"></div>
+													<div class="card-body" >
+														<p class="title" ><?php the_title(); ?></p>
+													</div>
+												</div><!-- .card -->
+											</div><!-- .carousel-item -->
+											<?php endwhile; endif; ?>
+											<?php $pCount++; endwhile; ?>
+										</div><!-- .carousel-inner -->
+									</div><!-- #carousel -->
+								</div><!-- .col -->
+							</div><!-- .row -->
+						</div><!-- .col -->
+					</div><!-- .row -->
+				</div><!-- .col -->
+				<?php else: ?>
 
+				<!-- PROGRAMS AS CARDS -->
+				<div class="col" >
+					<div class="row" >
+						<?php the_sub_field('content'); ?>
+					</div><!-- .row -->
+					<div class="row" >
+					<?php  while ($post_query->have_posts()) : $post_query->the_post(); ?>
 					<?php
 					$col = get_sub_field('col_num');
 					$colMD = "col-md-12";
@@ -46,72 +92,68 @@
 					} else  if ($col == 4) {
 						$colMD = "col-md-3";
 					}?>
-
-					
-					<!-- PROGRAMS -->
-					<?php if($type == 'programs' && $layout == 'card'): ?>
-						<?php if(have_rows('hero')): while(have_rows('hero')): the_row(); 
-							$style = get_sub_field('style');
-							$bgColor = get_sub_field('color');
-							$bgImage = get_sub_field('hero_image'); 
-							$bgPos = get_sub_field('hero_position');
-						?>
-						<div class="card">
-							<div class="image-wrapper" style="background-image:url(<?php echo $bgImage; ?>); background-color:var(--<?php echo $bgColor; ?>); background-position:<?php echo $bgPos; ?>"></div>
-							<div class="card-body" >
-								<p class="title" ><?php the_title(); ?></p>
-							</div>
-						</div>
-					<?php endwhile; endif; ?>
-
-					<!-- PROGRAMS AS A CAROUSEL -->
-					<?php elseif ($type == 'programs' && $layout == 'carousel'): ?>
-						<?php if(have_rows('hero')): while(have_rows('hero')): the_row(); 
-							$style = get_sub_field('style');
-							$bgColor = get_sub_field('color');
-							$bgImage = get_sub_field('hero_image'); 
-							$bgPos = get_sub_field('hero_position');
-						?>
-						<div class="card">
-							<div class="image-wrapper" style="background-image:url(<?php echo $bgImage; ?>); background-color:var(--<?php echo $bgColor; ?>); background-position:<?php echo $bgPos; ?>"></div>
-							<div class="card-body" >
-								<p class="title" ><?php the_title(); ?></p>
-							</div>
-						</div>
-					<?php endwhile; endif; ?>
-
-					<?php else : // else if not specified 
+					<?php if(have_rows('hero')): while(have_rows('hero')): the_row(); 
+						$style = get_sub_field('style');
+						$bgColor = get_sub_field('color');
+						$bgImage = get_sub_field('hero_image'); 
+						$bgPos = get_sub_field('hero_position');
 					?>
-					<div class="col-12 <?php echo $colMD; ?>">
+					<div class="col <?php echo $colMD; ?>" >
 						<div class="card">
-							<div class="card-body">
-								<p class="sub-title"><?php echo get_the_date('M d, Y'); ?></p>
-								<a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-								<a class="button inverted" href="<?php the_permalink(); ?>"><?php the_field('read_more', 'options'); ?></a>
-							</div><!-- .card-body -->
-						</div><!-- .card -->
-					</div><!-- .col -->
+							<div class="image-wrapper" style="background-image:url(<?php echo $bgImage; ?>); background-color:var(--<?php echo $bgColor; ?>); background-position:<?php echo $bgPos; ?>"></div>
+							<div class="card-body" >
+								<p class="title" ><?php the_title(); ?></p>
+							</div>
+						</div>
+					</div>
+					<?php endwhile; endif; ?>
 
-				<?php endif; endwhile; wp_reset_postdata(); ?>
+					<?php endwhile; wp_reset_postdata(); ?>
+					
+					<?php endif; ?>
+					</div><!-- .row -->
+				</div><!-- .col -->
+				
 			</div><!-- .post-card-row -->
 		</div><!-- .post-body -->
+
 		<?php if ($sidebar) : ?>
-			<div class="col-12 offset-md-1 col-md-3">
-				<?php get_template_part('partials/sidebar'); ?>
-			</div>
+		<div class="col-12 offset-md-1 col-md-3">
+			<?php get_template_part('partials/sidebar'); ?>
+		</div><!-- .col -->
 		<?php endif; ?>
 	</div><!-- .row -->
 
 	<?php if ($paginated) : ?>
-		<div class="row" id="pagination">
-			<div class="col-12 col-md-6 text-left">
-				<p><?php next_posts_link('<i class="fas fa-arrow-to-left"></i> More', $post_query->max_num_pages); ?></p>
-			</div><!-- .col -->
+	<div class="row" id="pagination">
+		<div class="col-12 col-md-6 text-left">
+			<p><?php next_posts_link('<i class="fas fa-arrow-to-left"></i> More', $post_query->max_num_pages); ?></p>
+		</div><!-- .col -->
 
-			<div class="col-12 col-md-6 text-right">
-				<p><?php previous_posts_link('Less <i class="fas fa-arrow-to-right"></i>', $post_query->max_num_pages); ?></p>
-			</div><!-- .col -->
-		</div><!-- .row -->
+		<div class="col-12 col-md-6 text-right">
+			<p><?php previous_posts_link('Less <i class="fas fa-arrow-to-right"></i>', $post_query->max_num_pages); ?></p>
+		</div><!-- .col -->
+	</div><!-- .row -->
 	<?php endif; ?>
 
 </div><!-- .container -->
+
+
+<style type="text/css" >
+.carousel-inner .carousel-item-right.active,
+.carousel-inner .carousel-item-next {
+  transform: translateX(33.33%);
+}
+
+.carousel-inner .carousel-item-left.active, 
+.carousel-inner .carousel-item-prev {
+  transform: translateX(-33.33%)
+}
+  
+.carousel-inner .carousel-item-right,
+.carousel-inner .carousel-item-left{ 
+  transform: translateX(0);
+}
+</style>
+
+https://stackoverflow.com/questions/20007610/bootstrap-carousel-multiple-frames-at-once

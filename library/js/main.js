@@ -21,16 +21,9 @@ jQuery(function($){
 	});
 
 	$(document).ready(function(){
-		// masonry grid
-		var macyInstance = Macy({
-			container: '.grid',
-			waitForImamges: true,
-			margin: 20,
-			columns: 3,
-			breakAt: {
-				769: 2
-			}
-		});
+		
+		// carousel multi-slide
+		
 
 		// set slideshow height to be consistent based on tallest slide
 		var slideHeight = 0;
