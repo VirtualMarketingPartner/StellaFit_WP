@@ -27,7 +27,7 @@
 	$template = get_row_layout();
 	$type = get_sub_field('posts');
 	?>
-	<section class="container-fluid <?php the_sub_field('bg'); ?>" <?php if(get_sub_field('bg') =='bg'): ?>
+	<section class="container-fluid <?php if($type == 'post'){echo 'wave';} ?> <?php the_sub_field('bg'); ?>" <?php if(get_sub_field('bg') =='bg'): ?>
 			 style="background-image:url(<?php echo $bgImage; ?>);"
 			<?php endif; ?>>
 		<?php if(get_sub_field('bg') =='bg'): ?>

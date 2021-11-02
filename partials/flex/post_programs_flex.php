@@ -156,4 +156,7 @@
 }
 </style>
 
-https://stackoverflow.com/questions/20007610/bootstrap-carousel-multiple-frames-at-once
+<!-- 
+	https://stackoverflow.com/questions/20007610/bootstrap-carousel-multiple-frames-at-once
+
+-->

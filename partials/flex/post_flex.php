@@ -1,6 +1,6 @@
 <?php $sidebar = get_sub_field('sidebar'); ?>
 
-<div class="container post_flex">
+<div class="container post_flex ">
 	<div class="row">
 		<div class="col-12">
 			<div class="text-wrapper animate slow">
@@ -87,40 +87,6 @@
 						</div>
 					<?php endwhile; endif; ?>
 					</div>
-					
-					<!-- PROGRAMS -->
-					<?php elseif($type == 'programs' && $layout == 'card'): ?>
-						<?php if(have_rows('hero')): while(have_rows('hero')): the_row(); 
-							$style = get_sub_field('style');
-							$bgColor = get_sub_field('color');
-							$bgImage = get_sub_field('hero_image'); 
-							$bgPos = get_sub_field('hero_position');
-						?>
-						<div class="card">
-							<div class="image-wrapper" style="background-image:url(<?php echo $bgImage; ?>); background-color:var(--<?php echo $bgColor; ?>); background-position:<?php echo $bgPos; ?>"></div>
-							<div class="card-body" >
-								<h1>Cards</h1>
-								<p class="title" ><?php the_title(); ?></p>
-							</div>
-						</div>
-					<?php endwhile; endif; ?>
-
-					<!-- PROGRAMS AS A CAROUSEL -->
-					<?php elseif ($type == 'programs' && $layout == 'carousel'): ?>
-						<?php if(have_rows('hero')): while(have_rows('hero')): the_row(); 
-							$style = get_sub_field('style');
-							$bgColor = get_sub_field('color');
-							$bgImage = get_sub_field('hero_image'); 
-							$bgPos = get_sub_field('hero_position');
-						?>
-						<div class="card">
-							<div class="image-wrapper" style="background-image:url(<?php echo $bgImage; ?>); background-color:var(--<?php echo $bgColor; ?>); background-position:<?php echo $bgPos; ?>"></div>
-							<div class="card-body" >
-								<h1>Carousel</h1>
-								<p class="title" ><?php the_title(); ?></p>
-							</div>
-						</div>
-					<?php endwhile; endif; ?>
 
 					<?php else : // else if not a specified type 
 					?>
