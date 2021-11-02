@@ -91,12 +91,11 @@ section:nth-child(2){
 .articleThumb{
 	display:block;
 	width:100%; height:100%;
-	position: relative;
-	background-color: var(--grey);
-	background-size:cover;
-	background-position: center center;
-	background-repeat: no-repeat;
-	z-index:1;
+	overflow:hidden;
+
+	&:hover > .articleImg{
+		transform: scale(1.05);
+	}
 
 	.articleText{
 		position:absolute;
@@ -119,6 +118,17 @@ section:nth-child(2){
 		background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,.7) 100%);
 		position: absolute;
 		bottom:0; left:0;
+		z-index:1;
+	}
+
+	.articleImg{
+		display: block;
+		width:100%; height: 100%;
+		position: relative;
+		background-color: var(--grey);
+		background-size:cover;
+		background-position: center center;
+		background-repeat: no-repeat;
 		z-index:0;
 	}
 }

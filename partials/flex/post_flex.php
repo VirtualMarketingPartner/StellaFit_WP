@@ -77,14 +77,15 @@
 						$bgImage = get_sub_field('hero_image'); 
 						$bgPos = get_sub_field('hero_position');
 					?>
-						<div class="articleThumb" style="background-image:url(<?php echo $bgImage; ?>); background-color:var(--<?php echo $bgColor; ?> );background-position:<?php echo $bgPos; ?>">
+						<a href="<?php the_permalink(); ?>" class="articleThumb" >
 							<div class="articleText" >
 								<p class="date"><?php echo get_the_date('M d, Y'); ?></p>
 								<p class="title" ><?php the_title(); ?></p>
-								<a href="<?php the_permalink();?>" ><?php the_field('read_more', 'options'); ?></a>
+								<p class="readMore"><?php the_field('read_more', 'options'); ?></p>
 							</div>
 							<div class="overlay" ></div>
-						</div>
+							<div class="articleImg" style="background-image:url(<?php echo $bgImage; ?>); background-color:var(--<?php echo $bgColor; ?> );background-position:<?php echo $bgPos; ?>" ></div>
+						</a>
 					<?php endwhile; endif; ?>
 					</div>
 
