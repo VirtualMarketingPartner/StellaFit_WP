@@ -32,7 +32,7 @@ body {
 
 .container-fluid section {
   position: relative;
-  padding: 0;
+  padding: 20px 0;
 
   &.primary {
     background: $primary;
@@ -61,6 +61,9 @@ body {
 
   &.bg {
     padding: 120px 0 0;
+  background-size:cover;
+  background-repeat: no-repeat;
+
     .overlay {
       margin-top: -120px;
     }
@@ -93,25 +96,6 @@ h6 {
   a {
     color: inherit;
     text-transform: inherit;
-  }
-}
-
-.highlight {
-  position: relative;
-  display: inline;
-  width: 100%;
-
-  &:after {
-    content: "";
-    display: block;
-    position: absolute;
-    background: $off-white;
-    height: 20px;
-    margin-top: -20px;
-    margin-left: -12px;
-    width: 110%;
-    z-index: -1;
-    transform: skew(-15deg, 0);
   }
 }
 
@@ -229,15 +213,17 @@ section.hero {
   background-repeat: no-repeat;
 }
 
-.carousel-navigation {
+.carousel-navigation,
+#pagination {
   .button {
     height: 30px;
     width: 30px;
     padding: 0;
     line-height: 30px;
     border-radius: 50%;
-    background: var(--secondary);
+    background: var(--dk-blue);
     color: var(--white);
+    text-align: center;
 
     i {
       padding: 0;
@@ -245,13 +231,14 @@ section.hero {
       color: var(--white);
     }
 
-    &.carousel-prev {
+    &.carousel-prev,
+    &.prev {
       background: var(--white);
-      color: var(--secondary);
+      color: var(--dk-blue);
       font-family: $icon;
 
       i {
-        color: var(--secondary);
+        color: var(--dk-blue);
       }
     }
 
@@ -260,6 +247,10 @@ section.hero {
       padding: 0;
     }
   }
+}
+
+#pagination{
+  a{display:inline-block; margin:0 5px;}
 }
 
 .vcenter {
@@ -361,12 +352,14 @@ img.image-wrapper.circle{
   color: $black;
   font-weight: 900;
   font-size: 112.5%;
+  display:block;
 }
 .sub-title {
   font-size: 75%;
   color: var(--dk-blue);
   font-weight: bold;
   margin-bottom: 5px;
+  display:block;
 }
 
 blockquote {

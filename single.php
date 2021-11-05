@@ -18,7 +18,7 @@
 				</div><!-- .col .post-body -->
 
                 <div class="col-12 col-md-4 offset-lg-1 col-lg-3 post-sidebar" >
-                    <?php get_sidebar(); ?>
+                    <?php get_template_part('partials/sidebar'); ?>
                 </div>
 				
 			</div><!-- .row -->

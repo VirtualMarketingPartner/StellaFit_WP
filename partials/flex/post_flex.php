@@ -48,6 +48,9 @@
 
 					<!-- BLOG POST -->
 					<?php if ($type == 'post') : ?>
+						<?php
+							$catImg = get_field('image','$category');
+						?>
 					<div class="col-12 <?php echo $colMD; ?>">
 						<div class="postItem <?php if (!$sidebar) { echo 'card'; } ?> ">
 							<div class="row postItemBody">
@@ -113,14 +116,21 @@
 
 	<?php if ($paginated) : ?>
 		<div class="row" id="pagination">
-			<div class="col-12 col-md-6 text-left">
-				<p><?php next_posts_link('<i class="fas fa-arrow-to-left"></i> More', $post_query->max_num_pages); ?></p>
-			</div><!-- .col -->
-
-			<div class="col-12 col-md-6 text-right">
-				<p><?php previous_posts_link('Less <i class="fas fa-arrow-to-right"></i>', $post_query->max_num_pages); ?></p>
-			</div><!-- .col -->
+			<div class="col-12 col-md-8 text-right" >
+				<?php next_posts_link('<div class="circle button prev" role="button" data-slide="next" >
+					<i class="fa-solid fa-arrow-left-long"></i>
+					<span class="sr-only" >Prev</span>
+				</div>', $post_query->max_num_pages); ?>
+				
+				<?php previous_posts_link('<div class="circle button" role="button" data-slide="next" >
+					<i class="fa-solid fa-arrow-right-long"></i>
+					<span class="sr-only" >Next</span>
+				</div>', $post_query->max_num_pages); ?>
+			</div>
 		</div><!-- .row -->
 	<?php endif; ?>
+
+	
+										
 
 </div><!-- .container -->
