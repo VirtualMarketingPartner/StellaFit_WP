@@ -375,6 +375,14 @@ blockquote {
     font-family: $script;
     font-size: 500%;
   }
+
+  &.wp-block-quote{
+    font-family:$sans;
+    width: 100%;
+    border-left: 5px solid var(--dk-blue);
+    padding: 20px;
+    margin: 20px auto;
+  }
 }
 
 ul.socials {
