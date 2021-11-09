@@ -61,6 +61,15 @@ section:nth-child(2){
 
 	.postItemBody{
 		padding:20px;
+
+		.imageWrapper {
+			width:100px; height:100px;
+			background-position: center center;
+			background-size:cover;
+			background-repeat: no-repeat;
+			margin: 0 auto;
+			display: block;
+		}
 	}
 
 	.button{

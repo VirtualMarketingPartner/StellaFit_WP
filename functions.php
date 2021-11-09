@@ -30,7 +30,7 @@ add_action( 'init', 'my_theme_add_editor_styles' );
 // Remove the excerpt "Read More" text 
 function new_excerpt_more($more) {
        global $post;
-	return '';
+	return '...';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
 

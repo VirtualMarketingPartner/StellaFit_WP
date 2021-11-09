@@ -48,14 +48,16 @@
 
 					<!-- BLOG POST -->
 					<?php if ($type == 'post') : ?>
-						<?php
-							$catImg = get_field('image','$category');
-						?>
+						
 					<div class="col-12 <?php echo $colMD; ?>">
-						<div class="postItem <?php if (!$sidebar) { echo 'card'; } ?> ">
+						<div class="postItem <?php if (!$sidebar) { echo 'card'; } ?>">
 							<div class="row postItemBody">
+								<?php 
+								$catID = get_the_category($id);
+								$cat = $catID[0]->name;
+								?>
 								<div class="col-12 col-md-3">
-									<div class="imageWrapper circle" style="background-image:url(<?php echo $catImg; ?>);"></div>
+									<a href="<?php the_permalink(); ?>" class="imageWrapper" style="background-image:url(<?php echo the_field( $cat , 'options'); ?>);"></a>
 								</div>
 								<div class="col-12 col-md-9">
 									<p class="sub-title"><?php echo get_the_date('M d, Y'); ?></p>
@@ -70,6 +72,7 @@
 							</div><!-- .postItemBody -->
 						</div><!-- .postItem -->
 					</div><!-- .col -->
+					
 
 					<!-- NEWS -->
 					<?php elseif ($type == 'news'): ?>
@@ -121,7 +124,7 @@
 					<i class="fa-solid fa-arrow-left-long"></i>
 					<span class="sr-only" >Prev</span>
 				</div>', $post_query->max_num_pages); ?>
-				
+				<p style="inline-block">More Posts</p>
 				<?php previous_posts_link('<div class="circle button" role="button" data-slide="next" >
 					<i class="fa-solid fa-arrow-right-long"></i>
 					<span class="sr-only" >Next</span>
