@@ -96,6 +96,8 @@ h6 {
   a {
     color: inherit;
     text-transform: inherit;
+    
+    &:hover{color:var(--dk-blue);}
   }
 }
 

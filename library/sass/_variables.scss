@@ -5,17 +5,7 @@
 // fonts
 @font-face {
   font-family: "September Mornings";
-  src: ("/library/fonts/SeptemberMornings.eot");
-  src: ("/library/fonts/SeptemberMornings.eot?#iefix")
-  format("embedded-opentype"),
-  local("/library/fonts/SeptemberMornings.woff2") format("woff2"),
-  local("/library/fonts/SeptemberMornings.woff") format("woff"),
-  local("/library/fonts/SeptemberMornings.ttf") format("truetype"),
-  local("/library/fonts/SeptemberMornings.svg#SeptemberMornings")
-  format("svg");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
+  src: url('../fonts/SeptemberMornings.woff2') format('woff2');
 }
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 

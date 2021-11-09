@@ -3,14 +3,14 @@
 
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-<?php get_template_part('/partials/hero'); ?>
-
-<section class="container-fluid post" >
+<section class="container-fluid post recipe" >
 		<div class="container" >
 			
 			<div class="row" >
 				<div class="col-12 offset-md-2 col-md-8 post-body" >
                     <div class="text-wrapper" >
+                        <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); ?>
+                        <div class="imageWrapper" style="background-image:url(<?php echo $thumb[0]; ?>);"></div>
                         <h1><?php the_title(); ?></h1>
                                 
                         <?php the_content(); ?>

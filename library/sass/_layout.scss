@@ -53,6 +53,15 @@ section:nth-child(2){
 
 .post{
 	margin-top:50px;
+
+	&.recipe{
+
+		.imageWrapper{
+			width:100%; 
+			height:auto; min-height:500px; 
+			margin-bottom:30px; 
+		}
+	}
 }
 
 .postItem{
@@ -65,16 +74,37 @@ section:nth-child(2){
 		}
 	}
 
+
 	.postItemBody{
 		padding:20px;
 
+		.date{
+			font-size: 70%;
+			font-weight: bold;
+			color: var(--dk-blue);
+			margin-bottom: 0;
+			padding-bottom: 0;
+		}
+
 		.imageWrapper {
 			width:100px; height:100px;
+			background-color: var(--off-white);
 			background-position: center center;
 			background-size:cover;
 			background-repeat: no-repeat;
 			margin: 0 auto;
 			display: block;
+
+			&.circle{
+				border-radius: 50%;
+				overflow: hidden;
+			}
+
+			&.rectangle{
+				width:100%;
+				height:auto;
+				min-height:100px;
+			}
 		}
 	}
 	

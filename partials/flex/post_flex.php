@@ -57,7 +57,7 @@
 								$cat = $catID[0]->name;
 								?>
 								<div class="col-12 col-md-3">
-									<a href="<?php the_permalink(); ?>" class="imageWrapper" style="background-image:url(<?php echo the_field( $cat , 'options'); ?>);"></a>
+									<a href="<?php the_permalink(); ?>" class="imageWrapper circle" style="background-image:url(<?php echo the_field( $cat , 'options'); ?>);"></a>
 								</div>
 								<div class="col-12 col-md-9">
 									<p class="sub-title"><?php echo get_the_date('M d, Y'); ?></p>
@@ -95,6 +95,29 @@
 					<?php endwhile; endif; ?>
 					</div>
 
+					<!-- RECIPES -->
+					<?php elseif ($type == 'recipes') : ?>
+						<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); ?>
+						<div class="col-12 <?php echo $colMD; ?>">
+							<div class="postItem <?php if (!$sidebar) { echo 'card'; } ?>">
+								<div class="row postItemBody">
+									<div class="col-12 col-md-3">
+										<a href="<?php the_permalink(); ?>" class="imageWrapper rectangle" style="background-image:url(<?php echo $thumb[0]; ?>);"></a>
+									</div>
+									<div class="col-12 col-md-9">
+									<p class="date"><?php echo get_the_date('M d, Y'); ?></p>
+										<a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+										<?php if( the_excerpt ): ?>
+											<p><?php the_excerpt(); ?></p>
+										<?php endif; ?>
+										<a class="button inverted" href="<?php the_permalink(); ?>">
+											<?php the_field('see_recipe', 'options'); ?>
+										</a>
+									</div>
+								</div><!-- .postItemBody -->
+							</div><!-- .postItem -->
+						</div><!-- .col -->
+
 					<?php else : // else if not a specified type 
 					?>
 					<div class="col-12 <?php echo $colMD; ?>">
@@ -124,7 +147,7 @@
 					<i class="fa-solid fa-arrow-left-long"></i>
 					<span class="sr-only" >Prev</span>
 				</div>', $post_query->max_num_pages); ?>
-				<p style="inline-block">More Posts</p>
+				<p style="display: inline-block">More Posts</p>
 				<?php previous_posts_link('<div class="circle button" role="button" data-slide="next" >
 					<i class="fa-solid fa-arrow-right-long"></i>
 					<span class="sr-only" >Next</span>
