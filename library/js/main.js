@@ -38,7 +38,7 @@ jQuery(function($){
 		var cardHeight = 0;
 		$('.card-row .card').each(function(){
 			if($(this).height() > cardHeight){
-				cardHeight = $(this).height()+15;
+				cardHeight = $(this).height();
 			}
 		});
 		$('.card-row .card').height(cardHeight);

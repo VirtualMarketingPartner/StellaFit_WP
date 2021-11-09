@@ -64,6 +64,17 @@ section:nth-child(2){
 	}
 }
 
+.cards-wrapper{
+	background: var(--white); 
+	margin-left: -15px; margin-right: -15px; 
+	margin-bottom: -185px; 
+	margin-top: 90px;
+
+	.card-row{
+		position: relative; top:-90px;
+	}
+}
+
 .postItem{
 	background:var(--white);
 	margin-bottom:30px;

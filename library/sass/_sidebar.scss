@@ -41,6 +41,11 @@
             font-size: 120%;
             margin-bottom: 0;
           }
+
+          #mc_embed_signup{
+            position: relative;
+          }
+
           #mc_embed_signup_scroll {
             input {
               width: 100%;
@@ -53,7 +58,7 @@
               height:36px; width:36px;
               line-height:36px;
               position:absolute;
-              right:19px; top:2px;
+              right:0; top:0;
               z-index:2;
               margin:0;
               padding:0;
@@ -64,10 +69,10 @@
               @include border-radius(50px);
               @include defaultTransition;
               background:$accent;
+              color: var(--white);
           
               &:hover{
                 background:var(--orange);
-                color:$white;
               }
             }
           }
