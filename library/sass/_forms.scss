@@ -27,18 +27,18 @@ input.gform_button.button{
 	margin:20px 0;
 	padding:10px 40px;
 	text-decoration: none;
-	text-transform:uppercase;
 	text-align:center;
 	outline:none;
 	border:none;
-	background:$secondary;
-	color:$primary;
-	float:right;
+	background:var(--orange);
+	color: var(--white);
 	@include border-radius(10px);
 	@include defaultTransition;
 
 
-	&:hover{}
+	&:hover{
+		background :var(--dk-blue);
+	}
 }
 
 /* Search Form */
