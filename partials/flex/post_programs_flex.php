@@ -66,7 +66,14 @@
 														<p class="title" ><?php the_title(); ?></p>
 													</div>
 												</div><!-- .card -->
-												<?php endwhile; endif; ?>
+												<?php endwhile; else: ?>
+												<div class="card">
+													<div class="image-wrapper" style="background-image:url(<?php echo $bgImage; ?>); background-color:var(--<?php echo $bgColor; ?>); background-position:<?php echo $bgPos; ?>"></div>
+													<div class="card-body" >
+														<p class="title" ><?php the_title(); ?></p>
+													</div>
+												</div><!-- .card -->
+												<?php endif; ?>
 											<?php if($i % 3 == 0 || $i == $num ){ ?>
 												</div><!-- .carousel-item <?php echo $i; ?> -->
 											<?php }
@@ -115,7 +122,16 @@
 							</div>
 						</div>
 					</div>
-					<?php endwhile; endif; ?>
+					<?php endwhile; else: ?>
+						<div class="col <?php echo $colMD; ?>" >
+						<div class="card">
+							<div class="image-wrapper" style="background-image:url(<?php echo $bgImage; ?>); background-color:var(--<?php echo $bgColor; ?>); background-position:<?php echo $bgPos; ?>"></div>
+							<div class="card-body" >
+								<p class="title" ><?php the_title(); ?></p>
+							</div>
+						</div>
+					</div>
+					<?php endif; ?>
 
 					<?php endwhile; wp_reset_postdata(); ?>
 					</div><!-- .row -->
@@ -133,15 +149,19 @@
 	</div><!-- .row -->
 
 	<?php if ($paginated) : ?>
-	<div class="row" id="pagination">
-		<div class="col-12 col-md-6 text-left">
-			<p><?php next_posts_link('<i class="fas fa-arrow-to-left"></i> More', $post_query->max_num_pages); ?></p>
-		</div><!-- .col -->
-
-		<div class="col-12 col-md-6 text-right">
-			<p><?php previous_posts_link('Less <i class="fas fa-arrow-to-right"></i>', $post_query->max_num_pages); ?></p>
-		</div><!-- .col -->
-	</div><!-- .row -->
+		<div class="row" id="pagination">
+			<div class="col-12 col-md-8 text-right" >
+				<?php next_posts_link('<div class="circle button prev" role="button" data-slide="next" >
+					<i class="fa-solid fa-arrow-left-long"></i>
+					<span class="sr-only" >Prev</span>
+				</div>', $post_query->max_num_pages); ?>
+				<p style="display: inline-block">More Posts</p>
+				<?php previous_posts_link('<div class="circle button" role="button" data-slide="next" >
+					<i class="fa-solid fa-arrow-right-long"></i>
+					<span class="sr-only" >Next</span>
+				</div>', $post_query->max_num_pages); ?>
+			</div>
+		</div><!-- .row -->
 	<?php endif; ?>
 
 </div><!-- .container -->

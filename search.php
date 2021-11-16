@@ -44,7 +44,7 @@
 					</div><!-- .row -->
 				<?php endif; ?>
 					<div class="row" id="pagination">
-						<div class="col-12 col-md-8 text-right" >
+						<div class="col-12 text-right" >
 							<?php next_posts_link('<div class="circle button prev" role="button" data-slide="next" >
 								<i class="fa-solid fa-arrow-left-long"></i>
 								<span class="sr-only" >Prev</span>
