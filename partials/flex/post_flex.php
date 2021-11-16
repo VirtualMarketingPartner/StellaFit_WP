@@ -101,10 +101,12 @@
 						<div class="col-12 <?php echo $colMD; ?>">
 							<div class="postItem <?php if (!$sidebar) { echo 'card'; } ?>">
 								<div class="row postItemBody">
-									<div class="col-12 col-md-3">
+									<?php if( has_post_thumbnail() ): ?>
+										<div class="col-12 col-md-4">
 										<a href="<?php the_permalink(); ?>" class="imageWrapper rectangle" style="background-image:url(<?php echo $thumb[0]; ?>);"></a>
 									</div>
-									<div class="col-12 col-md-9">
+									<?php endif; ?>
+									<div class="col-12 col-md-8">
 									<p class="date"><?php echo get_the_date('M d, Y'); ?></p>
 										<a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 										<?php if( the_excerpt ): ?>

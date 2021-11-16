@@ -28,6 +28,10 @@ section:nth-child(2){
 		background-size:cover;
 		background-position: right top;
 	}
+
+	.container{
+		margin:-100px auto 100px;
+	}
 }
 
 .wave{
@@ -78,10 +82,11 @@ section:nth-child(2){
 .postItem{
 	background:var(--white);
 	margin-bottom:30px;
+	border-bottom: 1px solid var(--off-white);
 
 	&.card{
 		.postItemBody{
-			.imageWrapper{width: 60px; height: 60px;}
+			.imageWrapper{width: 75px; height: 75px;}
 		}
 	}
 
@@ -114,7 +119,7 @@ section:nth-child(2){
 			&.rectangle{
 				width:100%;
 				height:auto;
-				min-height:100px;
+				min-height:120px;
 			}
 		}
 	}
@@ -186,10 +191,9 @@ section:nth-child(2){
 }
 
 .postCarousel{
-	background: orange !important;
 	
-	.carousel{
-		width: 60vw;
+	#carouselWrapper{
+		margin: -150px 0 0;
 	}
 
 	.carousel-item{

@@ -235,7 +235,7 @@ section.hero {
 
     &.carousel-prev,
     &.prev {
-      background: var(--white);
+      background: transparent;
       color: var(--dk-blue);
       font-family: $icon;
 
@@ -261,8 +261,6 @@ section.hero {
   .image-wrapper {
     width: 350px;
     height: auto;
-    border-radius: 140px 20px;
-    box-shadow: 20px 25px 0px -4px rgba(0, 0, 0, 0.08);
 
     &.circle {
       border-radius: 50%;
@@ -274,8 +272,6 @@ section.hero {
 img.image-wrapper{
   width: 350px;
   height: 350px;
-  border-radius: 140px 20px;
-  box-shadow: 20px 25px 0px -4px rgba(0, 0, 0, 0.08);
 
   &.circle{
     width: 80%;
@@ -283,14 +279,26 @@ img.image-wrapper{
     min-height: 0;
   }
 
+  &.shape{
+    border-radius: 25% 5%;
+    width: 90%;
+    margin: 20px auto;
+    height: 280px;
+    object-fit: cover;
+    box-shadow: 20px 25px 0px -4px rgba(0, 0, 0, 0.08);}
+
   &.alignleft{
     float: left;
     margin: 0 50px 20px 0;
+    max-width:350px;
+    height: 350px;
   }
 
   &.alignright{
     float: right;
     margin: 0 0 20px 50px;
+    max-width: 350px;
+    height: 350px;
   }
 }
 
@@ -303,9 +311,14 @@ img.image-wrapper{
   position: relative;
   min-height: 350px;
   width: 350px;
+  object-fit: cover;
 
-  &.shape {
-    display: none;
+  &.shape{
+    border-radius: 25% 5%;
+    width: 90%;
+    margin: 20px auto;
+    min-height: 280px;
+    box-shadow: 20px 25px 0px -4px rgba(0, 0, 0, 0.08);
   }
 }
 
@@ -388,6 +401,22 @@ img.image-wrapper{
     .card-body {
       padding: 0 0 20px 0;
     }
+  }
+
+  &.highlight{
+    font-size:80%;
+
+    p{
+      margin-bottom:0;
+      padding-top:20px;
+
+      a{
+        background-image:none;
+
+        &:hover{font-weight: bold;}
+      }
+    }
+
   }
 }
 

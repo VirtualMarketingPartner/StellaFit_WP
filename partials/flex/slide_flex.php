@@ -4,7 +4,7 @@
             <div class="col-12 offset-md-1 col-md-10" >
                 <div class="row vcenter" >
                     <div class="col-12 col-md-4" >
-                        <div class="image-wrapper" style="background-image:url(<?php the_sub_field('image'); ?>); background-position:<?php the_sub_field('image_position'); ?>" ></div>
+                        <div class="image-wrapper shape" style="background-image:url(<?php the_sub_field('image'); ?>); background-position:<?php the_sub_field('image_position'); ?>" ></div>
                     </div>
                     <div class="col-12 offset-md-1 col-md-7" >
                         <div class="hero-text" >

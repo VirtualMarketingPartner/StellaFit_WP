@@ -56,7 +56,7 @@
 		<?php elseif( $template == 'post_flex' && $type !== 'programs' ): ?>
 		<?php get_template_part('/partials/flex/post_flex'); ?>
 
-		<?php elseif( $template == 'post_flex' && $type == 'programs' ): ?>
+		<?php elseif( $template == 'post_flex' && $type == 'programs' || $type == 'videos' ): ?>
 		<?php get_template_part('/partials/flex/post_programs_flex'); ?>
 
 		<?php elseif( $template == 'expand_flex'): ?>

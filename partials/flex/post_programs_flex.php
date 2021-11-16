@@ -1,9 +1,5 @@
 <?php $sidebar = get_sub_field('sidebar'); ?>
-
-<div class="container post_flex">
-	<div class="row">
-		<div class="col-12 <?php if ($sidebar) { echo 'col-md-8';} ?> post-body">
-			<?php 
+<?php 
 			$type = get_sub_field('posts');
 			$excerpt = get_sub_field('excerpt');
 			$range = get_sub_field('number_posts');
@@ -14,7 +10,11 @@
 			$layout = get_sub_field('layout');
 			?>
 
-			<div class="row post-card-row <?php if($layout == 'carousel'){echo 'postCarousel' ;} ?>" >
+<div class="container<?php if($layout == 'carousel'){echo '-fluid postCarousel' ;} ?> post_flex">
+	<div class="row">
+		<div class="col-12 <?php if ($sidebar) { echo 'col-md-8';} ?> post-body">
+
+			<div class="row post-card-row" >
 				<?php
 				if ($paginated) : // if pagination is set use the default number of posts
 					$args = array('post_type' => $type, 'paged' => $paged);
@@ -27,25 +27,25 @@
 				<!-- PROGRAMS AS CAROUSEL -->
 				<?php if($layout == 'carousel'): ?>
 				<div class="col-12" >
-					<div class="row" >
-						<div class="col-12 col-md-3" >
+					<div class="row vcenter" id="carouselWrapper">
+						<div class="col-12 col-md-2 offset-md-3" >
 							<?php the_sub_field('content'); ?>
 							<br />
 							<div class="carousel-navigation text-center text-md-right" >
-								<a class="carousel-prev button" href="#carousel" role="button" data-slide="prev" >
+								<a class="carousel-prev button" href="#postCarouselarousel" role="button" data-slide="prev" >
 									<i class="fa-solid fa-arrow-left-long"></i>
 									<span class="sr-only" >Previous</span>
 								</a>
-								<a class="carousel-next button" href="#carousel" role="button" data-slide="next" >
+								<a class="carousel-next button" href="#postCarousel" role="button" data-slide="next" >
 									<i class="fa-solid fa-arrow-right-long"></i>
 									<span class="sr-only" >Next</span>
 								</a>
 							</div><!-- .carousel-nav -->
 						</div>
-						<div class="col-12 col-md-9" >
+						<div class="col-12 col-md-7" >
 							<div class="row" >
 								<div class="col-12" >
-								<div id="carousel" class="carousel slide" data-ride="carousel" >
+								<div id="postCarousel" class="carousel slide" >
 										<div class="carousel-inner" >
 										<?php 
 											$i = 1; 
@@ -73,7 +73,7 @@
 											$i++; endwhile; wp_reset_postdata(); 
 										?>
 										</div><!-- .carousel-inner -->
-									</div><!-- #carousel -->
+									</div><!-- #postCarousel -->
 								</div><!-- .col -->
 							</div><!-- .row -->
 						</div><!-- .col -->
@@ -145,3 +145,14 @@
 	<?php endif; ?>
 
 </div><!-- .container -->
+
+<script type="text/javascript" >
+
+jQuery(window).load(function() {
+
+$('#postCarousel').carousel({
+	interval: false,
+});
+
+});
+</script>

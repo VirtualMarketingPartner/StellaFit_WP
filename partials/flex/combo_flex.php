@@ -9,7 +9,7 @@
 	<div class="row vcenter" >
 		<?php if( get_sub_field('layout') == 'image-left' ): ?>
 		<div class="col-12 col-md-<?php echo $imageCol; ?>" >
-			<div class="image-wrapper animate" style="background-image:url(<?php echo $image; ?>); background-size:<?php echo $imageSize; ?>; background-position:<?php echo $imagePos; ?>" ></div>
+			<div class="image-wrapper shape animate" style="background-image:url(<?php echo $image; ?>); background-size:<?php echo $imageSize; ?>; background-position:<?php echo $imagePos; ?>" ></div>
 		</div><!-- .col -->
 		<div class="col-12 col-md-<?php echo $contentCol; ?>" >
 			<div class="text-wrapper animate slow" >
@@ -24,7 +24,7 @@
 			</div><!-- .text-wrapper -->
 		</div><!-- .col -->
 		<div class="col-12 col-md-<?php echo $imageCol; ?>" >
-		<div class="image-wrapper animate" style="background-image:url(<?php echo $image; ?>); background-size:<?php echo $imageSize; ?>; background-position:<?php echo $imagePos; ?>" ></div>
+		<div class="image-wrapper shape animate" style="background-image:url(<?php echo $image; ?>); background-size:<?php echo $imageSize; ?>; background-position:<?php echo $imagePos; ?>" ></div>
 		</div><!-- .col -->
 		<?php endif; ?>
 	</div><!-- .row -->

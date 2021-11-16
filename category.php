@@ -18,7 +18,7 @@
 										$cat = $catID[0]->name;
 										?>
 										<div class="col-12 col-md-3">
-											<a href="<?php the_permalink(); ?>" class="imageWrapper" style="background-image:url(<?php echo the_field( $cat , 'options'); ?>);"></a>
+											<a href="<?php the_permalink(); ?>" class="imageWrapper circle" style="background-image:url(<?php echo the_field( $cat , 'options'); ?>);"></a>
 										</div>
 										<div class="col-12 col-md-9">
 											<p class="sub-title"><?php echo get_the_date('M d, Y'); ?></p>
