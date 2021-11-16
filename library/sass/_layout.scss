@@ -185,11 +185,20 @@ section:nth-child(2){
 	}
 }
 
-.carousel-item{
-	.card{
-		width: 29%; 
-		margin: 0 2%;
-		display: inline-block;
-		overflow: hidden;
+.postCarousel{
+	background: orange !important;
+	
+	.carousel{
+		width: 60vw;
 	}
+
+	.carousel-item{
+		.card{
+			width: 29%; 
+			margin: 0 2%;
+			display: inline-block;
+			overflow: hidden;
+		}
+	}
+
 }

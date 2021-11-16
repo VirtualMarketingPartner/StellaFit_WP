@@ -40,18 +40,25 @@
 		
 		<?php if( $template == 'full_flex'): ?>
 		<?php get_template_part('/partials/flex/full_flex'); ?>
+		
 		<?php elseif( $template == 'column_flex'): ?>
 		<?php get_template_part('/partials/flex/column_flex'); ?>
+
 		<?php elseif( $template == 'cards_flex'): ?>
 		<?php get_template_part('/partials/flex/cards_flex'); ?>
+
 		<?php elseif( $template == 'combo_flex'): ?>
 		<?php get_template_part('/partials/flex/combo_flex'); ?>
+
 		<?php elseif( $template == 'slide_flex'): ?>
 		<?php get_template_part('/partials/flex/slide_flex'); ?>
+
 		<?php elseif( $template == 'post_flex' && $type !== 'programs' ): ?>
 		<?php get_template_part('/partials/flex/post_flex'); ?>
+
 		<?php elseif( $template == 'post_flex' && $type == 'programs' ): ?>
 		<?php get_template_part('/partials/flex/post_programs_flex'); ?>
+
 		<?php elseif( $template == 'expand_flex'): ?>
 		<?php get_template_part('/partials/flex/pd_flex'); ?>
 		<?php endif; ?>

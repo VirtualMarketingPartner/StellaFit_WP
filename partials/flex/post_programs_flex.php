@@ -14,7 +14,7 @@
 			$layout = get_sub_field('layout');
 			?>
 
-			<div class="row post-card-row " >
+			<div class="row post-card-row <?php if($layout == 'carousel'){echo 'postCarousel' ;} ?>" >
 				<?php
 				if ($paginated) : // if pagination is set use the default number of posts
 					$args = array('post_type' => $type, 'paged' => $paged);
@@ -45,14 +45,12 @@
 						<div class="col-12 col-md-9" >
 							<div class="row" >
 								<div class="col-12" >
-									<div id="carousel" class="carousel slide" data-ride="" >
+								<div id="carousel" class="carousel slide" data-ride="carousel" >
 										<div class="carousel-inner" >
-											
 										<?php 
 											$i = 1; 
 											while ($post_query->have_posts()): $post_query->the_post(); 
-											$num = $post_query->post_count; 
-												
+											$num = $post_query->post_count; 	
 											if( $i % 3 == 1 || $i == 1 ){ ?>
 												<div class="carousel-item <?php if( $i == 1 ){echo 'active'; } ?>">
 											<?php } ?> 
@@ -70,16 +68,16 @@
 												</div><!-- .card -->
 												<?php endwhile; endif; ?>
 											<?php if($i % 3 == 0 || $i == $num ){ ?>
-												</div><!-- .carousel-item -->
+												</div><!-- .carousel-item <?php echo $i; ?> -->
 											<?php }
-											$i++; endwhile; 
+											$i++; endwhile; wp_reset_postdata(); 
 										?>
-
 										</div><!-- .carousel-inner -->
 									</div><!-- #carousel -->
 								</div><!-- .col -->
 							</div><!-- .row -->
 						</div><!-- .col -->
+
 					</div><!-- .row -->
 				</div><!-- .col -->
 				<?php else: ?>
@@ -120,11 +118,10 @@
 					<?php endwhile; endif; ?>
 
 					<?php endwhile; wp_reset_postdata(); ?>
-					
-					<?php endif; ?>
 					</div><!-- .row -->
 				</div><!-- .col -->
-				
+
+				<?php endif; ?>
 			</div><!-- .post-card-row -->
 		</div><!-- .post-body -->
 
