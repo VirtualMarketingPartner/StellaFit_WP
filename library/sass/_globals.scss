@@ -205,6 +205,10 @@ section.hero {
 
   .hero-text {
     padding: 100px 0 50px;
+
+    h1, h2, h3, h4, h5, p{
+      text-shadow:0 0 10px rgba(0,0,0,.7);
+    }
   }
 }
 
