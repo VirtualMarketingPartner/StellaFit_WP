@@ -21,9 +21,6 @@ jQuery(function($){
 	});
 
 	$(document).ready(function(){
-		
-		// carousel multi-slide
-		
 
 		// set slideshow height to be consistent based on tallest slide
 		var slideHeight = 0;

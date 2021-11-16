@@ -184,3 +184,12 @@ section:nth-child(2){
 		z-index:0;
 	}
 }
+
+.carousel-item{
+	.card{
+		width: 29%; 
+		margin: 0 2%;
+		display: inline-block;
+		overflow: hidden;
+	}
+}

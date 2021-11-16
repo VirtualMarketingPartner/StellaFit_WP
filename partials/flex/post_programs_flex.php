@@ -45,25 +45,36 @@
 						<div class="col-12 col-md-9" >
 							<div class="row" >
 								<div class="col-12" >
-									<div id="carousel" class="carousel slide" data-ride="carousel" >
+									<div id="carousel" class="carousel slide" data-ride="" >
 										<div class="carousel-inner" >
-											<?php $pCount = 0; while ($post_query->have_posts()): $post_query->the_post(); ?>
-											<?php if(have_rows('hero')): while(have_rows('hero')): the_row(); 
-												$style = get_sub_field('style');
-												$bgColor = get_sub_field('color');
-												$bgImage = get_sub_field('hero_image'); 
-												$bgPos = get_sub_field('hero_position');
-											?>
-											<div class="carousel-item <?php if( $pCount == 0 ){echo 'active'; } ?> " >
+											
+										<?php 
+											$i = 1; 
+											while ($post_query->have_posts()): $post_query->the_post(); 
+											$num = $post_query->post_count; 
+												
+											if( $i % 3 == 1 || $i == 1 ){ ?>
+												<div class="carousel-item <?php if( $i == 1 ){echo 'active'; } ?>">
+											<?php } ?> 
+												<?php if(have_rows('hero')): while(have_rows('hero')): the_row(); 
+													$style = get_sub_field('style');
+													$bgColor = get_sub_field('color');
+													$bgImage = get_sub_field('hero_image'); 
+													$bgPos = get_sub_field('hero_position');
+												?>
 												<div class="card">
 													<div class="image-wrapper" style="background-image:url(<?php echo $bgImage; ?>); background-color:var(--<?php echo $bgColor; ?>); background-position:<?php echo $bgPos; ?>"></div>
 													<div class="card-body" >
 														<p class="title" ><?php the_title(); ?></p>
 													</div>
 												</div><!-- .card -->
-											</div><!-- .carousel-item -->
-											<?php endwhile; endif; ?>
-											<?php $pCount++; endwhile; ?>
+												<?php endwhile; endif; ?>
+											<?php if($i % 3 == 0 || $i == $num ){ ?>
+												</div><!-- .carousel-item -->
+											<?php }
+											$i++; endwhile; 
+										?>
+
 										</div><!-- .carousel-inner -->
 									</div><!-- #carousel -->
 								</div><!-- .col -->
@@ -137,26 +148,3 @@
 	<?php endif; ?>
 
 </div><!-- .container -->
-
-
-<style type="text/css" >
-.carousel-inner .carousel-item-right.active,
-.carousel-inner .carousel-item-next {
-  transform: translateX(33.33%);
-}
-
-.carousel-inner .carousel-item-left.active, 
-.carousel-inner .carousel-item-prev {
-  transform: translateX(-33.33%)
-}
-  
-.carousel-inner .carousel-item-right,
-.carousel-inner .carousel-item-left{ 
-  transform: translateX(0);
-}
-</style>
-
-<!-- 
-	https://stackoverflow.com/questions/20007610/bootstrap-carousel-multiple-frames-at-once
-
--->
