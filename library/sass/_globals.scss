@@ -7,10 +7,6 @@ html {
   padding: 0;
 }
 
-body,
-html {
-}
-
 body {
   font-size: 16px;
   line-height: 1.6;
@@ -172,9 +168,6 @@ a {
         }
         background: $trans;
         color: $primary;
-      }
-
-      &:hover {
       }
 
       &:after {
@@ -422,6 +415,12 @@ img.image-wrapper{
   font-weight: 900;
   font-size: 112.5%;
   display:block;
+
+  a{color: $black; 
+    background-image:none;
+
+    &:hover{color: var(--orange);}
+  }
 }
 .sub-title {
   font-size: 75%;

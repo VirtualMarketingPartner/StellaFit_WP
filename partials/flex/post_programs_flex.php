@@ -63,14 +63,14 @@
 												<div class="card">
 													<div class="image-wrapper" style="background-image:url(<?php echo $bgImage; ?>); background-color:var(--<?php echo $bgColor; ?>); background-position:<?php echo $bgPos; ?>"></div>
 													<div class="card-body" >
-														<p class="title" ><?php the_title(); ?></p>
+														<p class="title" ><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
 													</div>
 												</div><!-- .card -->
 												<?php endwhile; else: ?>
 												<div class="card">
 													<div class="image-wrapper" style="background-image:url(<?php echo $bgImage; ?>); background-color:var(--<?php echo $bgColor; ?>); background-position:<?php echo $bgPos; ?>"></div>
 													<div class="card-body" >
-														<p class="title" ><?php the_title(); ?></p>
+													<p class="title" ><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
 													</div>
 												</div><!-- .card -->
 												<?php endif; ?>
@@ -119,6 +119,7 @@
 							<div class="image-wrapper" style="background-image:url(<?php echo $bgImage; ?>); background-color:var(--<?php echo $bgColor; ?>); background-position:<?php echo $bgPos; ?>"></div>
 							<div class="card-body" >
 								<p class="title" ><?php the_title(); ?></p>
+								<a class="button inverted" href="<?php the_permalink(); ?>"><?php the_field('read_more', 'options'); ?></a>
 							</div>
 						</div>
 					</div>
@@ -128,6 +129,7 @@
 							<div class="image-wrapper" style="background-image:url(<?php echo $bgImage; ?>); background-color:var(--<?php echo $bgColor; ?>); background-position:<?php echo $bgPos; ?>"></div>
 							<div class="card-body" >
 								<p class="title" ><?php the_title(); ?></p>
+								<a class="button inverted" href="<?php the_permalink(); ?>"><?php the_field('read_more', 'options'); ?></a>
 							</div>
 						</div>
 					</div>

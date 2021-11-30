@@ -1,6 +1,7 @@
 /* ==========================================
 	Form Styles
 ========================================== */
+/* 
 .ginput_container{
 	
 	label.gfield_label{}
@@ -16,6 +17,7 @@
 	textarea{}
 	
 }
+*/
 
 input.gform_button.button{
 	position:relative;
@@ -71,6 +73,7 @@ input.gform_button.button{
 	}
 }
 
-.contactCard{
+.contactCard,
+.quizCard{
 	padding:20px;
 }
