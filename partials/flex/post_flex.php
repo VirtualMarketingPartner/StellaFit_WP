@@ -120,6 +120,17 @@
 							</div><!-- .postItem -->
 						</div><!-- .col -->
 
+						<?php elseif ($type == 'videos') : ?>
+						<div class="col-12 <?php echo $colMD; ?>">
+							<div class="card" >
+								<div class="video-wrapper iframe-container" ><?php the_content(); ?></div>
+								<div class="card-body" >
+								<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+									<a class="button inverted" href="<?php the_permalink(); ?>"><?php the_field('watch_now', 'options'); ?></a>
+								</div><!-- .card-body -->
+							</div><!-- .card -->
+						</div><!-- .col -->
+
 					<?php else : // else if not a specified type 
 					?>
 					<div class="col-12 <?php echo $colMD; ?>">
