@@ -33,5 +33,6 @@
 
 </body>
 <link rel="preload" href="/library/fonts/SeptemberMornings.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="https://use.typekit.net/fbr1gut.css">
 
 </html>
