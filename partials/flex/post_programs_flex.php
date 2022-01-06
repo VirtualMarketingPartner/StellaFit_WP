@@ -1,14 +1,13 @@
-<?php $sidebar = get_sub_field('sidebar'); ?>
-<?php 
-			$type = get_sub_field('posts');
-			$excerpt = get_sub_field('excerpt');
-			$range = get_sub_field('number_posts');
-			$paginated = get_sub_field('include_archive');
-			$style = get_sub_field('style');
-			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-			$count = get_sub_field('number_posts');
-			$layout = get_sub_field('layout');
-			?>
+<?php $sidebar = get_sub_field('sidebar'); 
+$type = get_sub_field('posts');
+$excerpt = get_sub_field('excerpt');
+$range = get_sub_field('number_posts');
+$paginated = get_sub_field('include_archive');
+$style = get_sub_field('style');
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+$count = get_sub_field('number_posts');
+$layout = get_sub_field('layout');
+?>
 
 <div class="container<?php if($layout == 'carousel'){echo '-fluid postCarousel' ;} ?> post_flex">
 	<div class="row">
@@ -116,20 +115,22 @@
 					?>
 					<div class="col <?php echo $colMD; ?>" >
 						<div class="card">
-							<div class="image-wrapper" style="background-image:url(<?php echo $bgImage; ?>); background-color:var(--<?php echo $bgColor; ?>); background-position:<?php echo $bgPos; ?>"></div>
+							<a href="<?php the_permalink(); ?>" class="image-wrapper" style="background-image:url(<?php echo $bgImage; ?>); background-color:var(--<?php echo $bgColor; ?>); background-position:<?php echo $bgPos; ?>"></a>
 							<div class="card-body" >
-								<p class="title" ><?php the_title(); ?></p>
-								<a class="button inverted" href="<?php the_permalink(); ?>"><?php the_field('read_more', 'options'); ?></a>
+								<a href="<?php the_permalink(); ?>" ><p class="title" ><?php the_title(); ?></p></a>
+								<?php the_excerpt(); ?>
+								<a href="<?php the_permalink(); ?>" ><?php the_field('read_more','options'); ?></a>
 							</div>
 						</div>
 					</div>
 					<?php endwhile; else: ?>
 						<div class="col <?php echo $colMD; ?>" >
 						<div class="card">
-							<div class="image-wrapper" style="background-image:url(<?php echo $bgImage; ?>); background-color:var(--<?php echo $bgColor; ?>); background-position:<?php echo $bgPos; ?>"></div>
+							<a href="<?php the_permalink(); ?>" class="image-wrapper" style="background-image:url(<?php echo $bgImage; ?>); background-color:var(--<?php echo $bgColor; ?>); background-position:<?php echo $bgPos; ?>"></a>
 							<div class="card-body" >
-								<p class="title" ><?php the_title(); ?></p>
-								<a class="button inverted" href="<?php the_permalink(); ?>"><?php the_field('read_more', 'options'); ?></a>
+								<a href="<?php the_permalink(); ?>" ><p class="title" ><?php the_title(); ?></p></a>
+								<?php the_excerpt(); ?>
+								<a href="<?php the_permalink(); ?>" ><?php the_field('read_more','options'); ?></a>
 							</div>
 						</div>
 					</div>

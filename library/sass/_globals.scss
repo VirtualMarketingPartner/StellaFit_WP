@@ -8,7 +8,7 @@ html {
 }
 
 body {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.6;
   color: $black;
   font-family: $sans;
@@ -23,7 +23,7 @@ body {
 
 .container {
   padding: 0 15px;
-  max-width: 1200px;
+  max-width: 1500px;
 }
 
 .container-fluid section {
@@ -62,6 +62,9 @@ body {
 
     .overlay {
       margin-top: -120px;
+      width: 80%;
+      background-color: var(--trans);
+      background-image: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.2) 40%, rgba(0,0,0,0) 60%);
     }
   }
 
@@ -324,7 +327,7 @@ img.image-wrapper{
   .image-wrapper {
     width: 100%;
     height: auto;
-    min-height: 200px;
+    min-height: 300px;
     margin: 0;
     padding: 0;
     position: relative;
@@ -439,7 +442,8 @@ blockquote {
   strong {
     font-weight: 400;
     font-family: $script;
-    font-size: 250%;
+    font-size: 500%;
+    line-height:.6;
   }
 
   &.wp-block-quote{
@@ -450,6 +454,41 @@ blockquote {
     margin: 20px auto;
   }
 }
+
+.quote{
+  color: var(--dk-blue);
+  margin-bottom: 50px;
+  padding: 0 50px 50px;
+  position: relative;
+
+  &:before,
+  &:after{
+    content:'';
+    display:block;
+    position: absolute;
+    height:30px; width:30px;
+    background-image:url(../images/quotes_dkblue.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    left: 12%;
+    top: 0;
+  }
+
+  &:after{
+    left: unset;
+    right: 20%;
+    top: unset;
+    bottom: 50px;
+    transform:rotate(180deg);
+  }
+}
+
+.script{
+  font-weight: 400;
+  line-height:.6;
+  font-size: 600%;
+  font-family: $script;}
 
 ul.socials {
   li {

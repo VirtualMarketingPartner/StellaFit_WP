@@ -3,12 +3,13 @@ $style = get_sub_field('style');
 $bgColor = get_sub_field('color');
 $bgImage = get_sub_field('hero_image'); 
 $minHeight = get_sub_field('hero_height');
+$fit = get_sub_field('small_image');
 $rgb = get_sub_field('hero_rgb');
 $opacity = get_sub_field('hero_overlay');
 ?>
 
 <?php if($style == 'bg') : ?>
-<section class="container-fluid bg hero <?php echo $bgColor; ?>" style="background-image:url(<?php echo $bgImage ?>); background-position:<?php the_sub_field('hero_position'); ?>; min-height:<?php echo $minHeight; ?>px;" >
+<section class="container-fluid bg hero <?php echo $bgColor; ?>" style="background-image:url(<?php echo $bgImage ?>); background-position:<?php the_sub_field('hero_position'); ?>; min-height:<?php echo $minHeight; ?>px; <?php if($fit){ echo 'background-size:contain;' ;} ?>" >
 	<div class="container" >
 		<div class="row" >
 			<div class="hero-text" >
@@ -23,8 +24,8 @@ $opacity = get_sub_field('hero_overlay');
 			</div><!-- .hero-text -->
 		</div><!-- .row -->
 	</div><!-- .container -->
-	<?php if(get_sub_field('hero_rgb')): ?>
-	<div class="overlay" style="background-color:rgba(<?php echo $rgb; ?>, .<?php echo $opacity; ?>);" ></div>
+	<?php if($fit): ?>
+	<div class="overlay" ></div>
 	<?php endif; ?>
 </section><!-- .hero -->
 
