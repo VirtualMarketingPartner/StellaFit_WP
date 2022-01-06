@@ -22,6 +22,19 @@ jQuery(function($){
 
 	$(document).ready(function(){
 
+		// image size for heroes
+		var bgW = $('.hero img').width();
+		var heroW = $('.hero').width();
+		var overW = heroW - bgW + 200;
+		$('.hero .overlay').css('width', overW );
+
+		console.log(bgW);
+		console.log(heroW);
+		console.log(overW);
+
+
+	
+
 		// set slideshow height to be consistent based on tallest slide
 		var slideHeight = 0;
 		$('.hero .carousel-item').each(function(){

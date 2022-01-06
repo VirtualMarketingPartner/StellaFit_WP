@@ -7,29 +7,39 @@ $fit = get_sub_field('small_image');
 $rgb = get_sub_field('hero_rgb');
 ?>
 
-<?php if($style == 'bg') : ?>
-<section class="container-fluid bg hero <?php echo $bgColor; ?>" style="background-image:url(<?php echo $bgImage ?>); background-position:<?php the_sub_field('hero_position'); ?>; min-height:<?php echo $minHeight; ?>px; <?php if($fit){ echo 'background-size:contain;' ;} ?>" >
+<?php if($style == 'bg' && $fit) : ?>
+	<section class="container-fluid bg hero <?php echo $bgColor; ?>" style="min-height:<?php echo $minHeight; ?>px;" >
+	<img src="<?php echo $bgImage ?>" style="height: 100%; width: auto; position: absolute; right: 0; top: 0;" />
 	<div class="container" >
 		<div class="row" >
 			<div class="hero-text" >
 				<div class="col-12" >
 					<div class="text-wrapper animate" >
-						<?php if(get_sub_field('content')): the_sub_field('content'); 
-						else: ?>
-						<h1><?php the_title(); ?></h1>
-						<?php endif; ?>
+						<?php if(get_sub_field('content')): the_sub_field('content'); endif; ?>
 					</div><!-- .text-wrapper -->
 				</div><!-- .col -->
 			</div><!-- .hero-text -->
 		</div><!-- .row -->
 	</div><!-- .container -->
-	<?php if($fit): ?>
 	<div class="overlay" 
 		<?php $colors = get_sub_field('color_overlay'); $all = count($colors); ?>
-			style="background-image: linear-gradient( <?php if(get_sub_field('overlay_angle')){echo the_sub_field('overlay_angle').'deg,';}else{echo 'to right,'; } while(have_rows('color_overlay')): $count = get_row_index()+1; the_row(); the_sub_field('color'); the_sub_field('color_stop'); echo '%'; if($all != $count){ echo ','; }else{ echo ', rgba(255,255,255,.0) 100%';}?><?php $final++; endwhile; ?>);" >
+			style="width: 0; background-image: linear-gradient( to right, <?php while(have_rows('color_overlay')): $count = get_row_index()+1; the_row(); the_sub_field('color'); the_sub_field('color_stop'); echo '%'; if($all != $count){ echo ','; }else{ echo ', rgba(255,255,255,.0) 100%';}?><?php $final++; endwhile; ?>);" >
 	</div>
-	<?php endif; ?>
-</section><!-- .hero -->
+</section><!-- .hero -->	
+<?php elseif ($style == 'bg'): ?>
+<section class="container-fluid bg hero <?php echo $bgColor; ?>" style="background-image:url(<?php echo $bgImage ?>); background-position:<?php the_sub_field('hero_position'); ?>; min-height:<?php echo $minHeight; ?>px;?>" >
+	<div class="container" >
+		<div class="row" >
+			<div class="hero-text" >
+				<div class="col-12" >
+					<div class="text-wrapper animate" >
+						<?php if(get_sub_field('content')): the_sub_field('content'); endif; ?>
+					</div><!-- .text-wrapper -->
+				</div><!-- .col -->
+			</div><!-- .hero-text -->
+		</div><!-- .row -->
+	</div><!-- .container -->
+</section><!-- .hero -->	
 
 <?php elseif($style == 'color'): ?>
 <section class="container-fluid bg hero <?php echo $bgColor; ?>" style="min-height:300px;"  >
