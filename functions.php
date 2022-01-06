@@ -19,6 +19,13 @@ function my_theme_enqueue_styles() {
 		date('hisA'),
 		'true' // load in the footer
 	);
+	wp_enqueue_script(
+		'color-thief-js',
+		get_stylesheet_directory_uri() . '/library/js/color-thief.js',
+		array('jquery', 'bootstrap'),
+		date('hisA'),
+		'true' // load in the footer
+	);
 }
 
 // Use Custom Editor Styles

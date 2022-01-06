@@ -5,7 +5,6 @@ $bgImage = get_sub_field('hero_image');
 $minHeight = get_sub_field('hero_height');
 $fit = get_sub_field('small_image');
 $rgb = get_sub_field('hero_rgb');
-$opacity = get_sub_field('hero_overlay');
 ?>
 
 <?php if($style == 'bg') : ?>
@@ -25,7 +24,10 @@ $opacity = get_sub_field('hero_overlay');
 		</div><!-- .row -->
 	</div><!-- .container -->
 	<?php if($fit): ?>
-	<div class="overlay" ></div>
+	<div class="overlay" 
+		<?php $colors = get_sub_field('color_overlay'); $all = count($colors); ?>
+			style="background-image: linear-gradient( <?php if(get_sub_field('overlay_angle')){echo the_sub_field('overlay_angle').'deg,';}else{echo 'to right,'; } while(have_rows('color_overlay')): $count = get_row_index()+1; the_row(); the_sub_field('color'); the_sub_field('color_stop'); echo '%'; if($all != $count){ echo ','; }else{ echo ', rgba(255,255,255,.0) 100%';}?><?php $final++; endwhile; ?>);" >
+	</div>
 	<?php endif; ?>
 </section><!-- .hero -->
 
