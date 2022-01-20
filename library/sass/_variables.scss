@@ -25,9 +25,13 @@ $icon: "Font Awesome 6 Pro";
 
   --orange: #e66a1f;
   --dk-blue: #0f2f4f;
-  --lt-blue: #d8edec;
+  --lt-blue: #1a2121;
 
   --trans: transparent;
+
+  --primary: var(--orange);
+  --secondary: var(--dk-blue);
+  --accent: var(--dk-blue);
 }
 
 $white: var(--white);
@@ -37,8 +41,8 @@ $grey: var(--off-white);
 $light-grey: var(--light-grey);
 $dark-grey: var(--dark-grey);
 
-$primary: var(--orange);
-$secondary: var(--dk-blue);
-$accent: var(--dk-blue);
+$primary: var(--primary);
+$secondary: var(--secondary);
+$accent: var(--accent);
 
 $trans: var(--trans);

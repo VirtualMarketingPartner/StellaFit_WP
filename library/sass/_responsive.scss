@@ -45,4 +45,8 @@
 @media all and (min-width:1200px) {}
 
 // Mobile -  Reall Big Screens 
-@media all and (min-width:1500px) {}
+@media all and (min-width:1500px) {
+	.container{
+		max-width: 1400px;
+	}
+}

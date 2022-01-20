@@ -61,13 +61,11 @@
 								</div>
 								<div class="col-12 col-md-9">
 									<p class="sub-title"><?php echo get_the_date('M d, Y'); ?></p>
-									<a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+									<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
 									<?php if ($excerpt) : ?>
 										<p><?php the_excerpt(); ?></p>
-									<?php else : ?>
-										<br>
 									<?php endif; ?>
-									<a class="button inverted" href="<?php the_permalink(); ?>"><?php the_field('read_more', 'options'); ?></a>
+									<a href="<?php the_permalink(); ?>"><?php the_field('read_more', 'options'); ?></a>
 								</div>
 							</div><!-- .postItemBody -->
 						</div><!-- .postItem -->
@@ -137,8 +135,8 @@
 						<div class="card">
 							<div class="card-body">
 								<p class="sub-title"><?php echo get_the_date('M d, Y'); ?></p>
-								<a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-								<a class="button inverted" href="<?php the_permalink(); ?>"><?php the_field('read_more', 'options'); ?></a>
+								<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+								<a href="<?php the_permalink(); ?>"><?php the_field('read_more', 'options'); ?></a>
 							</div><!-- .card-body -->
 						</div><!-- .card -->
 					</div><!-- .col -->
@@ -153,17 +151,25 @@
 		<?php endif; ?>
 	</div><!-- .row -->
 
-	<?php if ($paginated) : ?>
+	<?php if ($paginated) : 
+		$pageMe = (get_query_var('paged')) ? get_query_var('paged') : 1;
+		$total_post_count = wp_count_posts();
+		$published_post_count = $total_post_count->publish;
+		$total_pages = ceil( $published_post_count / $posts_per_page );
+		?>
+		
 		<div class="row" id="pagination">
-			<div class="col-12 col-md-8 text-right" >
+			<div class="col-12 col-md-8 text-center" >
 				<?php next_posts_link('<div class="circle button prev" role="button" data-slide="next" >
-					<i class="fa-solid fa-arrow-left-long"></i>
-					<span class="sr-only" >Prev</span>
+					<i class="fa-solid fa-caret-left"></i>
+					<span class="sr-only" >Previous Set of Pages</span>
 				</div>', $post_query->max_num_pages); ?>
-				<p style="display: inline-block">More Posts</p>
+				
+				<span class="sub-title" >Page <?= $pageMe; ?> of <?= $total_pages; ?></span>
+
 				<?php previous_posts_link('<div class="circle button" role="button" data-slide="next" >
-					<i class="fa-solid fa-arrow-right-long"></i>
-					<span class="sr-only" >Next</span>
+					<i class="fa-solid fa-caret-right"></i>
+					<span class="sr-only" >Next Set of Pages</span>
 				</div>', $post_query->max_num_pages); ?>
 			</div>
 		</div><!-- .row -->

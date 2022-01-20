@@ -8,7 +8,7 @@ html {
 }
 
 body {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.6;
   color: $black;
   font-family: $sans;
@@ -23,7 +23,7 @@ body {
 
 .container {
   padding: 0 15px;
-  max-width: 1500px;
+  max-width: 1200px;
 }
 
 .container-fluid section {
@@ -58,13 +58,15 @@ body {
   &.bg {
     padding: 120px 0 0;
   background-size:cover;
-  background-repeat: no-repeat;
 
     .overlay {
-      margin-top: -120px;
-      width: 80%;
+      height: 100vh;
+      width: 100%;
+      margin: 0;
+      bottom: 0;
+      position: absolute;
       background-color: var(--trans);
-      background-image: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.2) 40%, rgba(0,0,0,0) 60%);
+      background-image: linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.2) 40%, rgba(0,0,0,0) 60%);
     }
   }
 
@@ -78,7 +80,7 @@ body {
 }
 ::selection,
 -moz::selection {
-  background: $secondary;
+  background: var(--secondary);
   color: $white;
 }
 
@@ -88,7 +90,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 600;
+  font-weight: 900;
   font-family: $header;
   margin-bottom: 15px;
 
@@ -99,6 +101,8 @@ h6 {
     &:hover{color:var(--dk-blue);}
   }
 }
+
+h4{font-size: 115%; margin-bottom: 30px;}
 
 p {
   margin-bottom: 15px;
@@ -198,6 +202,8 @@ a {
 section.hero {
   background-size: cover;
   background-repeat: no-repeat;
+
+  .overlay{top: unset;}
 }
 
 .carousel-item {
@@ -244,7 +250,25 @@ section.hero {
 }
 
 #pagination{
-  a{display:inline-block; margin:0 5px;}
+  .sub-title{display: inline-block;}
+  a{
+    display:inline;
+    text-decoration: none;
+
+    .button.circle{
+      display: inline-block;
+      margin: 0 10px;
+      background: var(--dk-blue);
+      @include border-radius(50%);
+      height: 20px; width: 20px;
+      line-height: 20px;
+      text-align: center;
+  
+      i, svg{
+        color: var(--white);
+      }
+    }
+  }
 }
 
 .vcenter {
@@ -261,36 +285,37 @@ section.hero {
   }
 }
 
-img.image-wrapper{
-  width: 350px;
-  height: 350px;
-
-  &.circle{
-    width: 80%;
-    margin: 20px auto;
-    min-height: 0;
-  }
-
-  &.shape{
-    border-radius: 25% 5%;
-    width: 90%;
-    margin: 20px auto;
-    height: 280px;
-    object-fit: cover;
-    box-shadow: 20px 25px 0px -4px rgba(0, 0, 0, 0.08);}
-
+img{
   &.alignleft{
     float: left;
     margin: 0 50px 20px 0;
-    max-width:350px;
-    height: 350px;
+
+    &.circle{width: 80%; margin: 20px auto;}
   }
 
   &.alignright{
     float: right;
     margin: 0 0 20px 50px;
-    max-width: 350px;
-    height: 350px;
+  }
+
+  .image-wrapper{
+    min-width: 350px;
+    min-height: 350px;
+  
+    &.circle{
+      width: 80%;
+      margin: 20px auto;
+      min-height: 0;
+    }
+  
+  }
+
+  &.shape{
+    border-radius: 25% 5%;
+    margin: 0 40px 20px;
+    object-fit: cover;
+    object-position: top center;
+    box-shadow: 20px 25px 0px -4px rgba(0, 0, 0, 0.08);
   }
 }
 
@@ -302,15 +327,16 @@ img.image-wrapper{
 .image-wrapper {
   position: relative;
   min-height: 350px;
-  width: 350px;
+  min-width: 350px;
   object-fit: cover;
 
   &.shape{
     border-radius: 25% 5%;
-    width: 90%;
     margin: 20px auto;
-    min-height: 280px;
     box-shadow: 20px 25px 0px -4px rgba(0, 0, 0, 0.08);
+    height: 350px;
+    object-fit: cover;
+    width: 100%;
   }
 }
 
@@ -325,7 +351,6 @@ img.image-wrapper{
   h1, h2, h3, h4, h5{margin-bottom: 0;}
 
   .image-wrapper {
-    width: 100%;
     height: auto;
     min-height: 300px;
     margin: 0;
@@ -412,19 +437,6 @@ img.image-wrapper{
   }
 }
 
-.title {
-  font-weight: bold;
-  color: $black;
-  font-weight: 900;
-  font-size: 112.5%;
-  display:block;
-
-  a{color: $black; 
-    background-image:none;
-
-    &:hover{color: var(--orange);}
-  }
-}
 .sub-title {
   font-size: 75%;
   color: var(--dk-blue);

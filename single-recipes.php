@@ -9,8 +9,10 @@
 			<div class="row" >
 				<div class="col-12 offset-md-2 col-md-8 post-body" >
                     <div class="text-wrapper" >
-                        <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); ?>
-                        <div class="imageWrapper" style="background-image:url(<?php echo $thumb[0]; ?>);"></div>
+                        <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); 
+                        if($thumb): ?>
+                            <div class="imageWrapper" style="background-image:url(<?php echo $thumb[0]; ?>);"></div>
+                        <?php endif; ?>
                         <h1><?php the_title(); ?></h1>
                                 
                         <?php the_content(); ?>

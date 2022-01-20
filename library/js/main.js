@@ -28,13 +28,6 @@ jQuery(function($){
 		var overW = heroW - bgW + 200;
 		$('.hero .overlay').css('width', overW );
 
-		console.log(bgW);
-		console.log(heroW);
-		console.log(overW);
-
-
-	
-
 		// set slideshow height to be consistent based on tallest slide
 		var slideHeight = 0;
 		$('.hero .carousel-item').each(function(){
@@ -44,7 +37,8 @@ jQuery(function($){
 		});
 		$('.hero .carousel-item').height(slideHeight);
 		
-		//set card heights
+		/* 
+		set card heights
 		var cardHeight = 0;
 		$('.card-row .card').each(function(){
 			if($(this).height() > cardHeight){
@@ -60,6 +54,7 @@ jQuery(function($){
 			}
 		});
 		$('.post-card-row .card').height(postCardHeight);
+		*/
 		
 	});
 	

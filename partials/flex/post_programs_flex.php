@@ -62,14 +62,14 @@ $layout = get_sub_field('layout');
 												<div class="card">
 													<div class="image-wrapper" style="background-image:url(<?php echo $bgImage; ?>); background-color:var(--<?php echo $bgColor; ?>); background-position:<?php echo $bgPos; ?>"></div>
 													<div class="card-body" >
-														<p class="title" ><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
+														<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
 													</div>
 												</div><!-- .card -->
 												<?php endwhile; else: ?>
 												<div class="card">
 													<div class="image-wrapper" style="background-image:url(<?php echo $bgImage; ?>); background-color:var(--<?php echo $bgColor; ?>); background-position:<?php echo $bgPos; ?>"></div>
 													<div class="card-body" >
-													<p class="title" ><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
+													<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
 													</div>
 												</div><!-- .card -->
 												<?php endif; ?>
@@ -117,8 +117,10 @@ $layout = get_sub_field('layout');
 						<div class="card">
 							<a href="<?php the_permalink(); ?>" class="image-wrapper" style="background-image:url(<?php echo $bgImage; ?>); background-color:var(--<?php echo $bgColor; ?>); background-position:<?php echo $bgPos; ?>"></a>
 							<div class="card-body" >
-								<a href="<?php the_permalink(); ?>" ><p class="title" ><?php the_title(); ?></p></a>
-								<?php the_excerpt(); ?>
+								<h4><a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a></h4>
+								<?php if ($excerpt) : ?>
+									<p><?php the_excerpt(); ?></p>
+								<?php endif; ?>
 								<a href="<?php the_permalink(); ?>" ><?php the_field('read_more','options'); ?></a>
 							</div>
 						</div>
@@ -128,8 +130,10 @@ $layout = get_sub_field('layout');
 						<div class="card">
 							<a href="<?php the_permalink(); ?>" class="image-wrapper" style="background-image:url(<?php echo $bgImage; ?>); background-color:var(--<?php echo $bgColor; ?>); background-position:<?php echo $bgPos; ?>"></a>
 							<div class="card-body" >
-								<a href="<?php the_permalink(); ?>" ><p class="title" ><?php the_title(); ?></p></a>
-								<?php the_excerpt(); ?>
+								<h4><a href="<?php the_permalink(); ?>" ><?php the_title(); ?></a></h4>
+								<?php if ($excerpt) : ?>
+									<p><?php the_excerpt(); ?></p>
+								<?php endif; ?>
 								<a href="<?php the_permalink(); ?>" ><?php the_field('read_more','options'); ?></a>
 							</div>
 						</div>
