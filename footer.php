@@ -4,22 +4,26 @@
 	<div class="container-fluid" id="footer_row1">
 		<div class="container">
 			<div class="row">
-				<div class="col-12 col-md-4 text-center text-md-left">
+				<div class="col-12 offset-md-4 col-md-4 text-center ">
 					<a class="image-wrapper" id="footer-logo" href="<?php bloginfo('url'); ?>" style="background-image:url(<?php the_field('logo', 'options'); ?>);"></a>
 					<?php the_field('footer_address', 'options'); ?>
 				</div><!-- .col -->
+			</div><!-- .row -->
 
-				<div class="col-12 col-md-4 text-center text-md-left">
-					<?php the_field('footer_phone', 'options'); ?>
+			<div class="row" >
+				<div class="col-12 offset-md-4 col-md-4 text-center">
 					<?php get_template_part('partials/socials'); ?>
 				</div><!-- .col -->
+			</div><!-- .row -->
 
-				<div class="col-12 col-md-3 text-center text-md-left">
-					<h6>Menu</h6>
+			<div class="row" >
+				<div class="col-12 text-center">
 					<?php wp_nav_menu(array('theme_location' => 'main_menu')); ?>
 				</div><!-- .col -->
 			</div><!-- .row -->
+
 			<hr>
+
 			<div class="row">
 				<div class="col-12 text-center copyright">
 					<?php the_field('copyright', 'options'); ?>

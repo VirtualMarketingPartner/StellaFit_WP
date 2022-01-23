@@ -311,6 +311,7 @@ img{
   }
 
   &.shape{
+    min-width: unset;
     border-radius: 25% 5%;
     margin: 0 40px 20px;
     object-fit: cover;
@@ -353,6 +354,8 @@ img{
   .image-wrapper {
     height: auto;
     min-height: 300px;
+    min-width: unset;
+    width: 100%;
     margin: 0;
     padding: 0;
     position: relative;

@@ -8,6 +8,7 @@
 
     .image-wrapper{
         width:100%;
+        min-width: unset;
         min-height:150px;
         background-size:cover;
         background-repeat:no-repeat;
@@ -24,8 +25,8 @@
             li {
               padding: 7px 0;
               border-bottom: 1px solid $dark-grey;
-              i {
-                color: $secondary !important;
+              i, svg{
+                color: var(--secondary);
               }
               a {
                 color: $black !important;

@@ -19,15 +19,16 @@
 			$style = get_sub_field('style');
 			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 			$count = get_sub_field('number_posts');
-			$layout = get_sub_field('layout');
-			?>
+			$layout = get_sub_field('layout'); ?>
 
 			<div class="row post-card-row <?php if($type == 'news'){ echo 'grid';} ?>" >
 				<?php
 				if ($paginated) : // if pagination is set use the default number of posts
-					$args = array('post_type' => $type, 'paged' => $paged);
+					$args = array('post_type' => $type, 'paged' => $paged,
+				 );
 				else : // otherwise, check the count
-					$args = array('post_type' => $type, 'posts_per_page' => $count, 'paged' => $paged);
+					$args = array('post_type' => $type, 'posts_per_page' => $count, 'paged' => $paged,
+				 );
 				endif;
 
 				$post_query = new WP_Query($args); ?>
@@ -101,12 +102,11 @@
 								<div class="row postItemBody">
 									<?php if( has_post_thumbnail() ): ?>
 										<div class="col-12 col-md-4">
-										<a href="<?php the_permalink(); ?>" class="imageWrapper rectangle" style="background-image:url(<?php echo $thumb[0]; ?>);"></a>
+										<h4><a href="<?php the_permalink(); ?>" class="imageWrapper rectangle" style="background-image:url(<?php echo $thumb[0]; ?>);"></a></h4>
 									</div>
 									<?php endif; ?>
-									<div class="col-12 col-md-8">
-									<p class="date"><?php echo get_the_date('M d, Y'); ?></p>
-										<a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+									<div class="col-12 <?php if( has_post_thumbnail() ){ echo 'col-md-8' ;} ?> ">
+										<h4><a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
 										<?php if( the_excerpt ): ?>
 											<p><?php the_excerpt(); ?></p>
 										<?php endif; ?>
@@ -155,7 +155,6 @@
 		$pageMe = (get_query_var('paged')) ? get_query_var('paged') : 1;
 		$total_post_count = wp_count_posts();
 		$published_post_count = $total_post_count->publish;
-		$total_pages = ceil( $published_post_count / $posts_per_page );
 		?>
 		
 		<div class="row" id="pagination">
@@ -165,7 +164,7 @@
 					<span class="sr-only" >Previous Set of Pages</span>
 				</div>', $post_query->max_num_pages); ?>
 				
-				<span class="sub-title" >Page <?= $pageMe; ?> of <?= $total_pages; ?></span>
+				<span class="sub-title" >Page <?= $pageMe; ?></span>
 
 				<?php previous_posts_link('<div class="circle button" role="button" data-slide="next" >
 					<i class="fa-solid fa-caret-right"></i>
