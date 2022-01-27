@@ -129,6 +129,30 @@
 							</div><!-- .card -->
 						</div><!-- .col -->
 
+						<?php elseif ($type == 'podcasts') : ?>
+						<div class="col-12 <?php echo $colMD; ?>">
+							<div class="card" >
+								<div class="row postItemBody" style="padding: 10px;">
+									<?php if( has_post_thumbnail() ): ?>
+									<div class="col-12 col-md-4">
+										<h4><a href="<?php the_permalink(); ?>" class="image-wrapper rectangle" style="background-image:url(<?php echo $thumb[0]; ?>);"></a></h4>
+									</div>
+									<?php else: ?>
+										<div class="video-wrapper iframe-container" ><?php the_content(); ?></div>
+									<?php endif; ?>
+									<div class="col-12 col-md-8">
+										<h4><a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+										<?php if( the_excerpt ): ?>
+											<p><?php the_excerpt(); ?></p>
+										<?php endif; ?>
+										<a class="button inverted" href="<?php the_permalink(); ?>">
+											<?php the_field('listen_now', 'options'); ?>
+										</a>
+									</div>
+								</div><!-- .postItemBody -->
+							</div><!-- .card -->
+						</div><!-- .col -->
+
 					<?php else : // else if not a specified type 
 					?>
 					<div class="col-12 <?php echo $colMD; ?>">

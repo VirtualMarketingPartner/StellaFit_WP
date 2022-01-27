@@ -85,7 +85,7 @@ section:nth-child(even){
 
 	&.black{
 		&:before{
-			top:-280px;
+			top:-365px;
 			background-image:url('../images/black_swoop.svg');
 		}
 	}
@@ -177,7 +177,6 @@ section:last-child{padding-bottom: 50px;}
 	.gridItem{
 		position: relative;
 		width: 100%;
-		min-height: 300px;
 		margin:5px auto;
 		overflow: hidden;
 

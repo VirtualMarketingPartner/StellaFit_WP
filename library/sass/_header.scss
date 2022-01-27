@@ -3,8 +3,23 @@
 ========================================== */
 
 #header {
+  background: var(--white);
+  box-shadow:0 0 10px 0 rgba(0,0,0,.2);
+  
   .container {
     padding: 0 15px;
+  }
+
+  ul.socials{
+    margin:0 0 10px;
+    font-size:80%;
+
+    li{
+      padding:0;
+
+      a i,
+      a svg{color: var(--black) !important;}
+    }
   }
 
   #site_id {

@@ -1,13 +1,32 @@
-<?php if(have_rows('tabs')):  ?>
+<?php 
+	$content = get_sub_field('content');
+	$style = get_sub_field('tab_content'); 
+?>
+<?php if( $content ): ?>
+<div class="container" >
+	<div class="row" >
+		<div class="col-12 offset-md-1 col-md-10" >
+			<div class="text-wrapper animate slow" >
+				<?= $content ?>
+			</div>
+		</div>
+	</div>
+</div>
+<?php endif; ?>
+<?php if(have_rows('tabs')): ?>
 <div class="container tab_flex" >
 	<div class="row " >
 		<div class="col-12 offset-md-1 col-md-10" >
 			<ul class="nav" role="tablist">
-				<?php $NavCount == 0; while(have_rows('tabs')): the_row(); ?>
+				<?php $NavCount == 0; while(have_rows('tabs')): the_row();
+				$icon = get_sub_field('icon'); 
+				$tabLabel = get_sub_field('title');
+				$tabContent = get_sub_field('content');
+				 ?>
 				<li class="col-12 col-md text-center nav-item">
 					<a class="nav-link <?php if( $NavCount==0 ){ echo 'active'; } ?>" id="nav-<?= $NavCount; ?>" data-toggle="tab" href="#tab-<?= $NavCount; ?>" role="tab" aria-controls="nav-<?= $NavCount; ?>" aria-selected="true">
-						<i class="fa-duotone fa-<?php the_sub_field('icon'); ?>"></i><br>
-						<?php the_sub_field('title'); ?>
+						<?php if( $icon ): ?><i class="fa-duotone fa-<?= $icon ?>"></i><br><?php endif; ?>
+						<?= $tabLabel ?>
 					</a>
 				</li>
 				<?php $NavCount++; endwhile; ?>
@@ -17,7 +36,59 @@
 			<div class="tab-content" id="group-content">
 				<?php $TabCount == 0; while(have_rows('tabs')): the_row(); ?>
 				<div class="tab-pane fade <?php if( $TabCount==0 ){ echo 'show active'; } ?>" id="tab-<?= $TabCount; ?>" role="tabpanel" aria-labelledby="nav-<?= $TabCount; ?>">
-					<?php the_sub_field('content'); ?>
+					<?php if($style == 'posts'): ?>
+						
+						<?php $posts = get_sub_field('posts'); if( $posts ): ?>
+						<div class="row" >
+							<?php foreach( $posts as $post ): setup_postdata($post); 
+							$postType = get_post_type();
+							?>
+							<div class="col-12 col-md-6 col-lg-4" >
+								<div class="card" style="padding: 10px; min-height: 120px; margin: 10px auto;" >
+									<div class="row postItemBody">
+										<?php if($postType == 'videos' || $postType == 'podcasts'): ?>
+											<div class="video-wrapper iframe-container" ><?php the_content(); ?></div>
+										
+										<?php else: ?>
+											<?php if( has_post_thumbnail() ): ?>
+											<div class="col-12 col-md-4">
+												<a href="<?php the_permalink(); ?>" class="image-wrapper" style="background-image:url(<?php echo the_post_thumbnail_url(); ?>); min-height: 100px; background-color: #f5f5f5; background-position: center center; background-size: cover; background-repeat:no-repeat;"></a>
+											</div>
+											<?php else: ?>
+											<div class="col-12 col-md-4">
+												<a href="<?php the_permalink(); ?>" class="image-wrapper" style="min-height: 100px; background-color: #f5f5f5; background-position: center center; background-size: contain; background-repeat:no-repeat;"></a>
+											</div>
+										<?php endif; ?>
+
+										<?php endif; ?>
+										<div class="col-12 col-md-8">
+											<h4><a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+											<br />
+											<a class="button inverted" href="<?php the_permalink(); ?>">
+												<?php
+												if($postType == 'recipes'): ?>
+													<?php the_field('see_recipe', 'options'); ?>
+												<?php elseif($postType == 'podcasts'): ?>
+													<?php the_field('listen_now', 'options'); ?>
+												<?php elseif($postType == 'videos'): ?>
+													<?php the_field('watch_now', 'options'); ?>
+												<?php else: ?>
+													<?php the_field('read_more', 'options'); ?>
+												<?php endif; 
+												?>
+											</a>
+										</div>
+									</div><!-- .postItemBody -->
+								</div><!-- .card -->
+							</div><!-- .col -->
+							<?php endforeach; wp_reset_postdata(); ?>
+						</div>
+						<?php endif;?>
+
+
+					<?php elseif( $style == 'custom' ): ?>
+						<?= $tabContent ?>
+					<?php endif; ?>
 				</div><!-- .tab-pane -->
 				<?php $TabCount++; endwhile; wp_reset_postdata(); ?>
 			</div><!-- .#group-content -->
