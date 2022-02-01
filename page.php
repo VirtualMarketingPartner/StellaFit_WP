@@ -12,7 +12,7 @@
 	<section class="container-fluid" >
 		<div class="container" >
 			<div class="row animate slow" >
-				<div class="col-12 offset-md-1 col-md-10" >
+				<div class="col-12 offset-md-2 col-md-8" >
 					<?php the_content(); ?>
 				</div><!-- .col -->
 			</div><!-- .row -->

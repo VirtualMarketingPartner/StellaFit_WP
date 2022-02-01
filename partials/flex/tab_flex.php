@@ -14,7 +14,7 @@
 </div>
 <?php endif; ?>
 <?php if(have_rows('tabs')): ?>
-<div class="container tab_flex" >
+<div class="container tab_flex" style="padding-bottom: 150px;" >
 	<div class="row " >
 		<div class="col-12 offset-md-1 col-md-10" >
 			<ul class="nav" role="tablist">
@@ -24,7 +24,7 @@
 				$tabContent = get_sub_field('content');
 				 ?>
 				<li class="col-12 col-md text-center nav-item">
-					<a class="nav-link <?php if( $NavCount==0 ){ echo 'active'; } ?>" id="nav-<?= $NavCount; ?>" data-toggle="tab" href="#tab-<?= $NavCount; ?>" role="tab" aria-controls="nav-<?= $NavCount; ?>" aria-selected="true">
+					<a class="nav-link <?php if( $NavCount==0){ echo 'active'; } ?>" id="nav-<?= $NavCount; ?>" data-toggle="tab" href="#tab-<?= $NavCount; ?>" role="tab" aria-controls="nav-<?= $NavCount; ?>" aria-selected="true">
 						<?php if( $icon ): ?><i class="fa-duotone fa-<?= $icon ?>"></i><br><?php endif; ?>
 						<?= $tabLabel ?>
 					</a>
@@ -87,7 +87,7 @@
 
 
 					<?php elseif( $style == 'custom' ): ?>
-						<?= $tabContent ?>
+						<?php echo the_sub_field('custom_content'); ?>
 					<?php endif; ?>
 				</div><!-- .tab-pane -->
 				<?php $TabCount++; endwhile; wp_reset_postdata(); ?>
@@ -126,6 +126,12 @@
 			
 	
 		});
+
+		//if url has #tab- then get the value after # and set that as active tab & containter
+		var path = window.location.pathname;
+		if (path.toLowerCase().indexOf("#tab-") >= 0){
+			console.log('Open This Tab: '+ path);
+		}
 	});
 
 </script>

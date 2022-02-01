@@ -57,7 +57,8 @@ body {
 
   &.bg {
     padding: 120px 0 0;
-  background-size:cover;
+    background-size:cover;
+    background-attachment:scroll;
 
     .overlay {
       height: 100vh;
@@ -370,8 +371,7 @@ img{
     }
 
     a.button {
-      position: absolute;
-      bottom: 10px;
+      position: relative;
     }
   }
 

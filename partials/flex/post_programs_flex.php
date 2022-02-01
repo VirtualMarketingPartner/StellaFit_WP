@@ -16,9 +16,9 @@ $layout = get_sub_field('layout');
 			<div class="row post-card-row" >
 				<?php
 				if ($paginated) : // if pagination is set use the default number of posts
-					$args = array('post_type' => $type, 'paged' => $paged);
+					$args = array('post_type' => $type, 'order'=>'ASC', 'paged' => $paged);
 				else : // otherwise, check the count
-					$args = array('post_type' => $type, 'posts_per_page' => $count, 'paged' => $paged);
+					$args = array('post_type' => $type, 'order'=>'ASC', 'posts_per_page' => $count, 'paged' => $paged);
 				endif;
 
 				$post_query = new WP_Query($args); ?>
