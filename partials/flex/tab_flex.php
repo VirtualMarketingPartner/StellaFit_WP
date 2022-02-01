@@ -18,24 +18,32 @@
 	<div class="row " >
 		<div class="col-12 offset-md-1 col-md-10" >
 			<ul class="nav" role="tablist">
-				<?php $NavCount == 0; while(have_rows('tabs')): the_row();
+				<?php while(have_rows('tabs')): $NavCount = get_row_index();  the_row();
 				$icon = get_sub_field('icon'); 
 				$tabLabel = get_sub_field('title');
 				$tabContent = get_sub_field('content');
-				 ?>
+				$urlParam = (isset($_GET['fav']) && trim($_GET['fav']) == $tabLabel );
+				?>
+
 				<li class="col-12 col-md text-center nav-item">
-					<a class="nav-link <?php if( $NavCount==0){ echo 'active'; } ?>" id="nav-<?= $NavCount; ?>" data-toggle="tab" href="#tab-<?= $NavCount; ?>" role="tab" aria-controls="nav-<?= $NavCount; ?>" aria-selected="true">
+					<a class="nav-link <?php if($urlParam){echo 'active'; } ?>" id="nav-<?= $NavCount; ?>" data-toggle="tab" href="#tab-<?= $NavCount; ?>" role="tab" aria-controls="nav-<?= $NavCount; ?>" aria-selected="true">
 						<?php if( $icon ): ?><i class="fa-duotone fa-<?= $icon ?>"></i><br><?php endif; ?>
 						<?= $tabLabel ?>
 					</a>
 				</li>
-				<?php $NavCount++; endwhile; ?>
+				<?php endwhile; ?>
 				<div class="indicator" ></div>
 			</ul><!-- .nav -->
 			
 			<div class="tab-content" id="group-content">
-				<?php $TabCount == 0; while(have_rows('tabs')): the_row(); ?>
-				<div class="tab-pane fade <?php if( $TabCount==0 ){ echo 'show active'; } ?>" id="tab-<?= $TabCount; ?>" role="tabpanel" aria-labelledby="nav-<?= $TabCount; ?>">
+				<?php while(have_rows('tabs')): $TabCount = get_row_index(); the_row(); 
+				$icon = get_sub_field('icon'); 
+				$tabLabel = get_sub_field('title');
+				$tabContent = get_sub_field('content');
+				$urlParam = (isset($_GET['fav']) && trim($_GET['fav']) == $tabLabel );
+				?>
+				
+				<div class="tab-pane fade <?php if($urlParam){echo 'show active'; } ?>" id="tab-<?= $TabCount; ?>" role="tabpanel" aria-labelledby="nav-<?= $TabCount; ?>">
 					<?php if($style == 'posts'): ?>
 						
 						<?php $posts = get_sub_field('posts'); if( $posts ): ?>
@@ -90,7 +98,7 @@
 						<?php echo the_sub_field('custom_content'); ?>
 					<?php endif; ?>
 				</div><!-- .tab-pane -->
-				<?php $TabCount++; endwhile; wp_reset_postdata(); ?>
+				<?php endwhile; wp_reset_postdata(); ?>
 			</div><!-- .#group-content -->
 		</div><!-- .col -->
 	</div><!-- .row -->
@@ -102,6 +110,12 @@
 	jQuery(function($){
 		$(window).on("load resize scroll", function() {
 			
+			if( !$('.nav li a').hasClass('active') ){
+				$('.nav li:first-child a').addClass('active');
+				
+			}else{
+			}
+
 			//  slide indicator for tabs
 			var currentNav = $('.nav li a.active').parent('li');
 			var startNavPos = $(currentNav).position(); 
@@ -126,12 +140,6 @@
 			
 	
 		});
-
-		//if url has #tab- then get the value after # and set that as active tab & containter
-		var path = window.location.pathname;
-		if (path.toLowerCase().indexOf("#tab-") >= 0){
-			console.log('Open This Tab: '+ path);
-		}
 	});
 
 </script>
