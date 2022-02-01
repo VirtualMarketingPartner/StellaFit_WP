@@ -13,7 +13,7 @@ $layout = get_sub_field('layout');
 	<div class="row">
 		<div class="col-12 <?php if ($sidebar) { echo 'col-md-8';} ?> post-body">
 
-			<div class="row post-card-row" >
+			<div class="row post-card-row animate" >
 				<?php
 				if ($paginated) : // if pagination is set use the default number of posts
 					$args = array('post_type' => $type, 'order'=>'ASC', 'paged' => $paged);

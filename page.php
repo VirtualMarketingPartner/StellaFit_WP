@@ -64,6 +64,9 @@
 
 		<?php elseif( $template == 'tab_flex'): ?>
 		<?php get_template_part('/partials/flex/tab_flex'); ?>
+		
+		<?php elseif( $template == 'pd_flex'): ?>
+		<?php get_template_part('/partials/flex/pd_flex'); ?>
 		<?php endif; ?>
 		
 	</section><!-- .container-fluid -->

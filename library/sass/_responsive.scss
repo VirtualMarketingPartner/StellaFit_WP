@@ -83,6 +83,10 @@
 	section:nth-child(odd){
 		padding-bottom: 180px;
 	}
+
+	section:last-child{
+		padding-bottom: 50px;
+	}
 }
 
 // Mobile - Large Screens

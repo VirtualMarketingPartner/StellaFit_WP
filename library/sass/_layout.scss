@@ -76,7 +76,7 @@ section:nth-child(even){
 
 	&.off-white{
 		&:before{
-			top:-230px;
+			top:-250px;
 			background-image:url('../images/grey_swoop.svg');
 		}
 
@@ -304,5 +304,42 @@ section:last-child{padding-bottom: 50px;}
 			border-right:5px solid transparent;
 			border-top:5px solid var(--orange);
 		}
+	}
+}
+
+
+.pd_flex{
+
+	.expand{
+		border-bottom: 1px solid #f5f5f5;
+		padding-bottom: 5px;
+		margin-bottom: 5px;
+	}
+
+	.expand-header{
+		color: var(--black);
+		font-weight: 900;
+		@include defaultTransition;
+
+		&:hover{color: var(--orange);}
+
+		.indicator{
+			color: var(--orange);
+			margin-right: 5px;
+			@include defaultTransition;
+
+		}
+
+		&:hover{
+			i, svg{margin-left: 10px;}
+		}
+
+		&.open > i, 
+		&.open > svg{
+			transform: rotate(90deg);
+		}
+	}
+	.expand-content{
+		display:none;
 	}
 }
