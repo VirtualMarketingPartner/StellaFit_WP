@@ -112,7 +112,7 @@
 			
 			if( !$('.nav li a').hasClass('active') ){
 				$('.nav li:first-child a').addClass('active');
-				
+				$('.tab-pane:first-child').addClass('active show');
 			}else{
 			}
 

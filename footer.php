@@ -18,7 +18,7 @@
 
 			<div class="row" >
 				<div class="col-12 text-center">
-					<?php wp_nav_menu(array('theme_location' => 'main_menu')); ?>
+					<?php the_field('footer_impressum','options'); ?>
 				</div><!-- .col -->
 			</div><!-- .row -->
 

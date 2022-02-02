@@ -19,7 +19,7 @@ if( $layout == 'overlap'): ?>
 				<?php while(have_rows('cards')): the_row(); ?>
 				<?php $cardStyle = get_sub_field('card_style'); ?>
 					<div class="col-6 col-lg" >
-						<div class="card <?php echo $cardStyle; ?> animate" >
+						<div class="card <?php echo $cardStyle; ?>" >
 							<div class="card-body text-wrapper" >
 								<?php the_sub_field('content'); ?>
 							</div><!-- .card-body -->
@@ -44,7 +44,7 @@ if( $layout == 'overlap'): ?>
 						<?php while(have_rows('cards')): the_row(); ?>
 						<?php $cardStyle = get_sub_field('card_style'); ?>
 						<div class="col" >
-							<div class="card <?php echo $cardStyle; ?> animate" >
+							<div class="card <?php echo $cardStyle; ?>" >
 								<div class="card-body text-wrapper" >
 									<?php the_sub_field('content'); ?>
 								</div><!-- .card-body -->

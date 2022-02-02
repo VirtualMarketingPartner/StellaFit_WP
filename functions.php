@@ -69,6 +69,15 @@ add_filter('excerpt_more', 'new_excerpt_more');
 // Support for Featured Images
 add_theme_support( 'post-thumbnails' );
 
+// register menus	
+function register_child_menus() {
+	register_nav_menus(
+		array(
+			'footer_menu' => __('Footer Menu'),
+		)
+	);
+}
+add_action('init', 'register_child_menus');
 
 /* ======================== 
    CUSTOM BACKEND MENUS 
@@ -121,6 +130,13 @@ function icon_Shortcode($atts){
 	return $icon;
 }
 add_shortcode('icon', 'icon_Shortcode');
+
+function print_menu_shortcode($atts, $content = null) {
+	extract(shortcode_atts(array( 'name' => null, 'class' => null ), $atts));
+	return wp_nav_menu( array( 'menu' => $name, 'menu_class' => 'menu', 'echo' => false ) );
+	}
+	
+	add_shortcode('menu', 'print_menu_shortcode');
 
 
 

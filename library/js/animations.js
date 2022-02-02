@@ -9,7 +9,7 @@ jQuery(function($){
         new ScrollMagic.Scene({
             triggerElement: sections[i], // y value not mmodified so we can use element as trigger as well
             offset: -100,
-            reverse: true
+            reverse: false
         })
         .setClassToggle(sections[i], "slideIn" ) // add ClassToggle
         // .addIndicators({name: "animate-" + (i+1) }) // add Indicators

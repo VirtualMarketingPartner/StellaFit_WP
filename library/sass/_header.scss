@@ -13,12 +13,17 @@
   ul.socials{
     margin:0 0 10px;
     font-size:80%;
+    z-index: 2;
 
     li{
       padding:0;
 
       a i,
       a svg{color: var(--black) !important;}
+
+      a:hover > i,
+      a:hover > svg{color: var(--orange) !important;}
+
     }
   }
 

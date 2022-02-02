@@ -75,7 +75,13 @@
 }
 
 // Mobile - Tablets
-@media all and (min-width:768px) {}
+@media all and (min-width:768px) {
+	.grid .gridItem{
+		width: 45%;
+		min-height: 300px;
+		display: inline-block;
+	}
+}
 
 
 // Mobile - Desktop
@@ -106,6 +112,7 @@
 			position: relative;
 			display: grid;
 			min-height:200px;
+			width: 100%;
 			overflow:hidden;
 		
 			&:first-child{min-height: 410px;}
