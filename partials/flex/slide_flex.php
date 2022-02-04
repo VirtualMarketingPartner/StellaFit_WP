@@ -1,13 +1,13 @@
-<section class="container-fluid slide_flex" >
+<section class="container-fluid slide_flex" style="margin-bottom: 100px;" >
     <div class="container" >
         <div class="row" >
             <div class="col-12" >
-                <div class="row vcenter" >
+                <div class="row vcenter animate" >
                     <div class="col-12 col-lg-3" >
-                        <div class="image-wrapper shape animate slow" style="background-image:url(<?php the_sub_field('image'); ?>); background-position:<?php the_sub_field('image_position'); ?>" ></div>
+                        <div class="image-wrapper shape " style="background-image:url(<?php the_sub_field('image'); ?>); background-position:<?php the_sub_field('image_position'); ?>" ></div>
                     </div>
                     <div class="col-12 offset-lg-2 col-lg-7" >
-                        <div class="hero-text animate" >
+                        <div class="hero-text " >
                             <div class="content" >
 								<h2><?php the_sub_field('header'); ?></h2>
 
